@@ -4,6 +4,7 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+var env = require('dotenv').config();
 const { time } = require('console');
 const querystring = require('querystring');
 const schedule = require('node-schedule');
@@ -11,13 +12,13 @@ const fs = require('fs');
 const dataSql = fs.readFileSync('createdb.sql').toString();
 
 
-const port = 5500;
+const port = process.env.EXPOSEDPORT;
 const servers = 3;
 
 //using modules
 app = express();
 app.use(session({
-	secret: '12345',
+	secret: process.env.SECRET,
 	resave: true,
 	saveUninitialized: true
 }));
@@ -26,12 +27,21 @@ app.use(bodyParser.json());
 
 //This stores information relating to the connection to the database
 var con = mysql.createConnection({  
-host: "192.168.99.32",  
-user: "root",  
-password: "12345",
-port: "3306",
-database: "authentication"
+  host: process.env.HOST,  
+  user: 'root',  
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
+  database: process.env.DATABASE
 });  
+
+// var con = mysql.createConnection({  
+//   host: "192.168.99.32",  
+//   user: "root",  
+//   password: "12345",
+//   port: "3306",
+//   database: "authentication"
+//   });  
+
 
 con.connect();
 
@@ -98,8 +108,26 @@ app.get('/access', (req,res) => {
 	} else {
 		res.sendFile(__dirname+'/webpage/Visiting/denied.html');
 	}
-	
+})
 
+app.get('/voted', (req,res) => {
+  
+  if (req.session.loggedin) {
+    console.log("access granted")
+		res.sendFile(__dirname+'/webpage/Access/voted.html')
+	} else {
+		res.sendFile(__dirname+'/webpage/Visiting/denied.html');
+	}
+})
+
+app.get('/novote', (req,res) => {
+  
+  if (req.session.loggedin) {
+    console.log("access granted")
+		res.sendFile(__dirname+'/webpage/Access/novote.html')
+	} else {
+		res.sendFile(__dirname+'/webpage/Visiting/denied.html');
+	}
 })
 
 app.get('/homeauth', (req,res) => {
@@ -198,7 +226,7 @@ app.post('/data', (req,res) => {
     
       
       con.query("INSERT INTO voting VALUES(? , CURRENT_TIME , IF(CURRENT_TIME > '12:55:00',DATE_ADD(CURRENT_DATE, INTERVAL 1 DAY), CURRENT_DATE), ?)", [req.session.username,req.query.vote], function (err, result) {
-        if (err) { res.redirect('/denied') } else {res.sendFile(__dirname+'/webpage/Access/vote.html')}	
+        if (err) { res.redirect('/novote') } else {res.sendFile(__dirname+'/webpage/Access/voted.html')}	
     }) 
     
 
@@ -213,14 +241,21 @@ app.post('/data', (req,res) => {
 
 //This is the cron function that tallies the voes everyday at 12:55
 
-const tally = schedule.scheduleJob('55 12 * * *', function(){
+const timetally = schedule.scheduleJob('55 12 * * *', function(){
+  tally()
+  
+
+})
+
+//seperate cron function and tally function so tally can be called multiple times when I want
+
+
+
+
+var tally = function() {
 
   console.log("declared variables")
   var vote = 0;
-
-
-
-
  
   con.query("SELECT COUNT(username),vote FROM voting WHERE date = CURRENT_DATE  GROUP BY vote ORDER BY vote DESC", function (err, result) {
     console.log("Did query")
@@ -256,10 +291,8 @@ const tally = schedule.scheduleJob('55 12 * * *', function(){
 
   })
 
-})
 
-
-
+}
 
 
   
@@ -277,7 +310,7 @@ const tally = schedule.scheduleJob('55 12 * * *', function(){
 
 //listens for the server on the designated port 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://${process.env.HOST}:${port}`)
 })
 
 
