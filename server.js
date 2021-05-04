@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 
 //This stores information relating to the connection to the database
 var con = mysql.createConnection({  
-host: "localhost",  
+host: "192.168.99.32",  
 user: "root",  
 password: "12345",
 port: "3306",
@@ -246,7 +246,7 @@ const tally = schedule.scheduleJob('55 12 * * *', function(){
   
 
 
-  fs.writeFileSync('test.txt',result, err => {
+  fs.writeFileSync('/HOME/worlds',result, err => {
 
       if (err) {
           console.log("Error writing file");
