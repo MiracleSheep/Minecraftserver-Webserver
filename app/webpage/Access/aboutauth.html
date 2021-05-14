@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html>
+    <title>About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+   
+    div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+<body>
+
+    <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+        <div class="w3-container">
+          <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
+        </div>
+        <div class="w3-bar-block">
+          <a href="/homeauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+          <a href="/aboutauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
+          <a href="/vote" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vote</a> 
+          <a href="/modpacks" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Modpacks</a> 
+          <a href="/plugins" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Plugins</a> 
+          <a href="/mods" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Mods</a> 
+          <a href="/other" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Other creations</a> 
+    
+    
+        </div>
+      </nav>
+
+  <!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>MiracleSheep server</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:40px" id="showcase">
+    <div>
+    <h1 class="w3-jumbo"><b>About the server</b></h1>
+    </div>
+  </div>
+  <img src="https://theydiffer.com/wp-content/uploads/2016/07/sheep.jpg" style="float: right;">
+  <div>
+    <h1 class="w3-xxxlarge w3-text-red"><b>What is the server?</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>This website is based around a community minecraft server</p>
+    <p>It's called the MiracleSheep minecraft server, and it's based around multiplayer survival. </p>
+    <p>We do both vanilla and modded minecraft multiplayer.</p>
+    <p>We also do the occasionnal event which can involve hardcore, mods, and plugins, and adventure maps</p>
+  </div>
+
+
+  <div>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Showing off our server</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>Here are some cool shots of our server:</p>
+
+  </div>
+
+
+  <div>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Memories</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>Here are some of the cool moments from events had on the server:</p>
+
+  </div>
+
+  
+  <!-- Photo grid (modal) -->
+  <div class="w3-row-padding">
+    <div class="w3-half">
+      <img src="/images/Speedrun8.png" style="width:100%" onclick="onClick(this)" alt="Our first hardcore speedrun with a hardcore revival plugin. Participants: Xtreem_Piggy17, MiracleSheep, Crazyfr0g_ and TyphoonChicken." width="600" height="400">
+      <img src="/images/Speedrun3.png" style="width:100%" onclick="onClick(this)" alt="A hardcore speedrun in an amplified world with MiracleSheep, Xtreem_Piggy17 and TyphoonChicken." width="600" height="400">
+      <img src="/images/Speedrun5.png" style="width:100%" onclick="onClick(this)" alt="Photo with Xtreem_piggy17, Crazyfr0g_, MiracleSheep and TyphoonChicken beside the dragon egg." width="600" height="400">
+    </div>
+
+    <div class="w3-half">
+      <img src="/images/Aether.png" style="width:100%" onclick="onClick(this)" alt="Fighting the aether sun god with Xtreem_Piggy17, MiracleSheep, Crazyfr0g_ and Orangeboy342." width="600" height="400">
+      <img src= "/images/Speedrun.png" style="width:100%" onclick="onClick(this)" alt="One of our largest hardcore challenges, involving MiracleSheep, TyphoonChicken, FtPigeon, Xtreem_Piggy17, Crazyfr0g_ and Orangeboy342." width="600" height="400">
+      <img src="/images/Speedrun7.png" style="width:100%" onclick="onClick(this)" alt="One of our first hardcore speedruns, with MiracleSheep, Xtreem_Piggy17, Crazyfr0g_ and TyphoonChicken." width="600" height="400">
+    </div>
+  </div>
+
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <div>
+    <h1 class="w3-xxxlarge w3-text-red"><b>SMPs</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>Here are some highlights from our SMPs:</p>
+
+  </div>
+
+    <!-- Photo grid (modal) -->
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <img src="/images/Altar.png" style="width:100%" onclick="onClick(this)" alt="An altar for the first command block placed in our first SMP. Made by Catdog04." width="600" height="400">
+        <img src="/images/blastoff.png" style="width:100%" onclick="onClick(this)" alt="MiracleSheep, Xtreem_Piggy17 and Crazyfr0g_ blasting off to the moon and winning the space race in the Race to the Moon SMP (inspired by the Race to the Moon let's play)." width="600" height="400">
+        <img src="/images/Dragon_and_Elytra_Screenshot.png" style="width:100%" onclick="onClick(this)" alt="Photo of Catdog04 at his base on the first SMP." width="600" height="400">
+      </div>
+  
+      <div class="w3-half">
+        <img src="/images/Isaac.png" style="width:100%" onclick="onClick(this)" alt="A image of Orangeboy342's base on the 2nd vanilla SMP." width="600" height="400">
+        <img src= "/images/John.png" style="width:100%" onclick="onClick(this)" alt="An image from MiracleSheep's base in the 2nd vanilla SMP." width="600" height="400">
+        <img src="/images/Micah.png" style="width:100%" onclick="onClick(this)" alt="An image of TyphoonChicken's base on the 2nd vanilla SMP." width="600" height="400">
+      </div>
+    </div>
+
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <img src="/images/Shop.png" style="width:100%" onclick="onClick(this)" alt="An image of the shopping district" width="600" height="400">
+        <img src="images/Teo.png" style="width:100%" onclick="onClick(this)" alt="An image of NotZoyu's house on the 2nd vanilla SMP." width="600" height="400">
+
+      </div>
+    </div>
+
+    <div class="w3-row-padding">
+      <div class="w3-half">
+
+        <img src="/images/statue.png" style="width:100%" onclick="onClick(this)" alt="An image of a statue built by Xtreem_Piggy17 on the 2nd vanilla SMP." width="600" height="400">
+        <img src="/images/TownSquare.png" style="width:100%" onclick="onClick(this)" alt="An image of the town square on the 2nd vanilla SMP" width="600" height="400">
+      </div>
+    </div>
+
+
+  <script>
+    
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
+    </script>
+      
+  
+
+
+
+</body>
+</html>

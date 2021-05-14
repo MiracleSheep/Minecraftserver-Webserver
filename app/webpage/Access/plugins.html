@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Plugins</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+    </style>
+
+<body>
+
+  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container">
+      <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
+    </div>
+    <div class="w3-bar-block">
+      <a href="/homeauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+      <a href="/aboutauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
+      <a href="/vote" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vote</a> 
+      <a href="/modpacks" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Modpacks</a> 
+      <a href="/plugins" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Plugins</a> 
+      <a href="/mods" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Mods</a> 
+      <a href="/other" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Other creations</a> 
+
+
+    </div>
+  </nav>
+
+  <!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>MiracleSheep server</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:40px" id="showcase">
+    <div>
+    <h1 class="w3-jumbo"><b>Plugins</b></h1>
+    </div>
+  </div>
+  <img src="https://theydiffer.com/wp-content/uploads/2016/07/sheep.jpg" style="float: right;">
+  <div>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Why plugins are here</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>The owner of the server, MiracleSheep, has made a few minecraft plugins, all of which ran on the server at some point.
+      Among them were a duel plugin, hardcore revival plugin, and an essentials plugin.
+      This page is where people can find the plugins. 
+      One plugin are not well coded, (DuelPlugin), and has many bugs becaus MiracleSheep coded it before he knew programming conventions (and he is too lazy to fix them now). 
+    There will be more plugins that come out, so check this page every once in a while to see if any new ones pop up. The links here will direct you to the github repository where you can download the plugins under the releases section.</p>
+    
+  </div>
+
+
+
+
+  <div>
+
+    <h1 class="w3-xxxlarge w3-text-red"><b>Duel Plugin</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>This is both the first and one of the biggest plugins MiracleSheep ever made (not a good idea to start with a big project). As a result, it's very buggy and has lots of difficulty with more than two players.
+      The other plugins are recommended, but this plugin is only here for history, not for use.
+      It has a custom kit system, which allows players to create kits in the config and equip them if they have certain permissions.
+      It also allows the user to choose what world and coordinates they want the duel arena to be in, and allows the server owner to make their own arena.
+      The duelists can choose what kit they want, and each kit can have their own arena assigned.</p>
+    </p>Here is the github page:</p>
+
+    <form action="https://github.com/MiracleSheep/Minecraft-MiracleSheepDuel-Plugin" method="GET">
+        <input type="submit" name="DuelPlugin" value="DuelPlugin" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" style="width: 20%;">
+      </form>
+    
+  </div>
+
+
+  <div>
+
+    <h1 class="w3-xxxlarge w3-text-red"><b>HardCore Revival Plugin</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>This plugin is very simple.
+      All it does is provide a craftable crystal that can revive a player in hardcore.
+      The crystal requires 1 diamond and eight iron to craft.
+      It was used because people died too often during hardcore events.
+      One compatibility issue to look our for: the multiverse plugin has an annoying feature which swiches the player's gamemode to the dimension's default when they change dimensions
+      This interferes with the revival crystal, as it only picks up players in spectator mode. To get around this, set the default multiverse gamemode in the overworld to spectator.</p>
+    </p>Here is the github page:</p>
+
+    <form action="https://github.com/MiracleSheep/Minecraft-HardCoreRevival-Plugin" method="GET">
+        <input type="submit" name="Hard-Core-Revival" value="Hard-Core-Revival" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" style="width: 20%;">
+      </form>
+    
+  </div>
+
+
+  <div>
+
+    <h1 class="w3-xxxlarge w3-text-red"><b>MiracleSheep Essentials Plugin</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>This plugin has a variety of features.
+      A save inventory feature, m ultiplayer sleep feature, message upon player joining and a /rules command, just to name a few. Check the config to discover all the other features.</p>
+      <p>Here is the github page:</p>
+
+    <form action="https://github.com/MiracleSheep/Minecraft-MiracleSheepEssentials-Plugin" method="GET">
+        <input type="submit" name="MiracleSheep-Essentials" value="MiracleSheep-Essentials" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" style="width: 20%;">
+      </form>
+    
+  </div>
+
+
+
+
+
+
+
+
+</body>
+</html>

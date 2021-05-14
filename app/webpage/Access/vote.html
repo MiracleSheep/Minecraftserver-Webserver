@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+    <title>Vote</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+    </style>
+
+<body>
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+      <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+      <div class="w3-container">
+        <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
+      </div>
+      <div class="w3-bar-block">
+        <a href="/homeauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+        <a href="/aboutauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
+        <a href="/vote" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vote</a> 
+        <a href="/modpacks" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Modpacks</a> 
+        <a href="/plugins" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Plugins</a> 
+        <a href="/mods" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Mods</a> 
+        <a href="/other" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Other creations</a> 
+  
+  
+      </div>
+    </nav>
+
+  <!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>MiracleSheep server</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:40px" id="showcase">
+    <div>
+    <h1 class="w3-jumbo"><b>MiracleSheep's server</b></h1>
+    </div>
+  </div>
+  <img src="https://theydiffer.com/wp-content/uploads/2016/07/sheep.jpg" style="float: right;">
+  <div>
+    <h1 class="w3-xxxlarge w3-text-red"><b>What is voting?</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <p>This voting feature allows you to choose what world you want to run on the server. </p>
+    <p>The server tallies the votes at 1:00 every day. </p>
+    <p>Members can only vote once per day. </p>
+  </div>
+
+    <!-- Packages / Pricing Tables -->
+    <div style="float:left">
+    <div style="margin-top:40px ">
+      <h1 class="w3-xxxlarge w3-text-red"><b>Available Worlds</b></h1>
+      <hr style="width:50px;border:5px solid red" class="w3-round">
+    </div>
+  
+          
+      <div class="w3-half">
+        <table class="w3-ul w3-light-grey w3-center">
+          <tr>
+            <th class="w3-red w3-xlarge w3-padding-32">Name</th>
+            <th class="w3-red w3-xlarge w3-padding-32">Description</th>
+          </tr>
+          <tr>
+            <td class="w3-padding-16">Data (Vanilla)</td>
+            <td class="w3-padding-16">This container runs the current vanilla SMP.</td>
+            
+          </tr>
+          <tr>
+            <td class="w3-padding-16">Data (Modded)</td>
+            <td class="w3-padding-16">This container runs the current modded SMP.</td>
+          
+          </tr>
+          <tr>
+            <td class="w3-padding-16"> Data2 (Events)</td>
+            <td class="w3-padding-16">This container runs events and is used for testing.</td>
+            
+          </tr>
+
+        </table>
+      </div>
+
+        <div style="float:right; width:100%">
+        <div style="margin-top:40px">
+          <h1 class="w3-xxxlarge w3-text-red"><b>Vote Here:</b></h1>
+          <hr style="width:50px;border:5px solid red" class="w3-round">
+        </div>
+        <form action="/data/?vote=1" method="POST">
+          <input type="submit" name="Vanilla" value="vanilla" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
+        </form>
+
+        <form action="/data/?vote=2" method="POST">
+          <input type="submit" name="Modded" value="modded" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
+        </form>
+
+        <form action="/data/?vote=3" method="POST">
+          <input type="submit" name="Event" value="event" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
+        </form>
+
+        <!-- <a href="/data/?vote=1" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Vanilla</a>
+        <a href="/data1/?vote=2" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Modded</a>
+        <a href="/data2/?vote=3" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Event</a> -->
+      </div>
+</body>
+</html>
