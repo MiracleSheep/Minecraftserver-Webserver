@@ -9,7 +9,7 @@ const { time } = require('console');
 const querystring = require('querystring');
 const schedule = require('node-schedule');
 const fs = require('fs');
-const dataSql = fs.readFileSync('createdb.sql').toString();
+
 
 
 const port = process.env.EXPOSEDPORT;
@@ -30,7 +30,7 @@ var con = mysql.createConnection({
   host: process.env.HOST,  
   user: 'root',  
   password: process.env.PASSWORD,
-  port: process.env.PORT,
+  port: process.env.MYSQL_LOCAL_PORT,
   database: process.env.DATABASE
 });  
 
