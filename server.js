@@ -29,30 +29,27 @@ app.use(session({
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
-// //This stores information relating to the connection to the database
-// var con = mysql.createConnection({  
-//   host: process.env.MYSQL_HOST,  
-//   user: process.env.MYSQL_USERNAME,  
-//   password: process.env.MYSQL_ROOT_PASSWORD,
-//   port: process.env.MYSQL_LOCAL_PORT,
-// //  database: process.env.MYSQL_DATABASE
-// });  
-
-
+//This stores information relating to the connection to the database
 var con = mysql.createConnection({  
-  host: "192.168.99.32",  
-  user: "root",  
-  password: "12345",
-  port: 3306,
-  database: "authentication"
-  }); 
+  host: process.env.MYSQL_HOST,  
+  user: process.env.MYSQL_USERNAME,  
+  password: process.env.MYSQL_ROOT_PASSWORD,
+  port: process.env.MYSQL_LOCAL_PORT,
+  database: process.env.MYSQL_DATABASE
+});  
 
-// //try {
+
+// var con = mysql.createConnection({  
+//   host: "192.168.99.32",  
+//   user: "root",  
+//   password: "12345",
+//   port: 3306,
+//   database: "authentication"
+//   }); 
+
+
 con.connect();
-// }
-// catch(err) {
-//   console.log(err)
-// }
+
 
 
 
