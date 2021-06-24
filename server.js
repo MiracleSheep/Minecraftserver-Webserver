@@ -9,11 +9,7 @@ const { time } = require('console');
 const querystring = require('querystring');
 const schedule = require('node-schedule');
 const fs = require('fs');
-//const dataSql = fs.readFileSync('createdb.sql').toString();
 
-// require('./db/sequelize');
-
-// const { user: UserModel } = require('./db/sequelize');
 
 
 const port = process.env.NODE_LOCAL_PORT;
@@ -38,14 +34,6 @@ var con = mysql.createConnection({
   database: process.env.MYSQL_DATABASE
 });  
 
-
-// var con = mysql.createConnection({  
-//   host: "192.168.99.32",  
-//   user: "root",  
-//   password: "12345",
-//   port: 3306,
-//   database: "authentication"
-//   }); 
 
 
 con.connect();
@@ -301,18 +289,6 @@ var tally = function() {
 
 
 }
-
-
-  
-
-
-
-
-  
-  
-
-
-
 
 
 
