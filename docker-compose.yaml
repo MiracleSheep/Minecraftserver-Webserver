@@ -9,7 +9,6 @@ services:
     env_file: ./.env
     environment:
       MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: $MYSQL_DATABASE
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
     volumes: 
@@ -27,6 +26,12 @@ services:
       - /app/node_modules
     depends_on:
       - mysqldb
+    command: sh -c "/wait && node server.js"
+    environment:
+      - WAIT_HOSTS=mysqldb:3306
+      - WAIT_HOSTS_TIMEOUT=300
+      - WAIT_SLEEP_INTERVAL=30
+      - WAIT_HOST_CONNECT_TIMEOUT=30
     container_name: minecraft-webserver
     stdin_open: true
     tty: true
