@@ -1,6 +1,6 @@
 //modules
-var mysql = require('mysql');
 var express = require('express');
+var mysql = require('mysql2');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
@@ -9,10 +9,10 @@ const { time } = require('console');
 const querystring = require('querystring');
 const schedule = require('node-schedule');
 const fs = require('fs');
-const dataSql = fs.readFileSync('createdb.sql').toString();
 
 
-const port = process.env.EXPOSEDPORT;
+
+const port = process.env.NODE_LOCAL_PORT;
 const servers = 3;
 
 //using modules
@@ -27,23 +27,19 @@ app.use(bodyParser.json());
 
 //This stores information relating to the connection to the database
 var con = mysql.createConnection({  
-  host: process.env.HOST,  
-  user: 'root',  
-  password: process.env.PASSWORD,
-  port: process.env.PORT,
-  database: process.env.DATABASE
+  host: process.env.MYSQL_HOST,  
+  user: process.env.MYSQL_USERNAME,  
+  password: process.env.MYSQL_ROOT_PASSWORD,
+  port: process.env.MYSQL_LOCAL_PORT,
+  database: process.env.MYSQL_DATABASE
 });  
 
-// var con = mysql.createConnection({  
-//   host: "192.168.99.32",  
-//   user: "root",  
-//   password: "12345",
-//   port: "3306",
-//   database: "authentication"
-//   });  
 
 
 con.connect();
+
+
+
 
 
 //None of these pages require authentication
@@ -295,22 +291,10 @@ var tally = function() {
 }
 
 
-  
-
-
-
-
-  
-  
-
-
-
-
-
 
 //listens for the server on the designated port 
 app.listen(port, () => {
-  console.log(`Example app listening at http://${process.env.HOST}:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`)
 })
 
 

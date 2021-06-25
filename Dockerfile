@@ -12,9 +12,14 @@ RUN npm install
 # If you are building your code for production
 # RUN npm ci --only=production
 
+# Add docker-compose-wait tool -------------------
+ENV WAIT_VERSION 2.7.2
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
+RUN chmod +x /wait
+
 # Bundle app source
 COPY . .
 
-EXPOSE 5500
 
+EXPOSE 5500
 CMD [ "node", "server.js" ]
