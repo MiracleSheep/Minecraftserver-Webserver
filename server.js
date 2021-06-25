@@ -1,6 +1,6 @@
 //modules
 var express = require('express');
-var mysql = require('mysql');
+var mysql = require('mysql2');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
