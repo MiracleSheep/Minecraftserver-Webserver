@@ -12,12 +12,9 @@ services:
       MYSQL_DATABASE: $MYSQL_DATABASE
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
-    command: --init-file /data/application/init.sql
     volumes: 
-      - ./init.sql:/data/application/init.sql
-      - db-config:/etc/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/mysql
-      - ./db/backup/files/:/data_backup/data
   app:
     build:
       context: .
@@ -35,5 +32,4 @@ services:
     tty: true
 
 volumes: 
-  db-config:
   db-data:
