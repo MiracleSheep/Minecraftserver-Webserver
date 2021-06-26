@@ -281,7 +281,7 @@ function tally() {
 
     console.log(result);
 
-    fs.writeFile(".\worlds", result, function(err) {
+    fs.writeFile("worlds", result, function(err) {
       if(err) {
           return console.log(err);
       }
