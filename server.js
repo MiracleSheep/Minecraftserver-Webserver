@@ -39,6 +39,8 @@ var con = mysql.createConnection({
 con.connect();
 
 
+tally();
+
 
 
 
@@ -237,7 +239,7 @@ app.post('/data', (req,res) => {
 
 //This is the cron function that tallies the voes everyday at 12:55
 
-const timetally = schedule.scheduleJob('55 12 * * *', function(){
+const timetally = schedule.scheduleJob('49 21 * * *', function(){
   tally()
   
 
@@ -248,12 +250,15 @@ const timetally = schedule.scheduleJob('55 12 * * *', function(){
 
 
 
-var tally = function() {
+function tally() {
 
-  console.log("declared variables")
-  var vote = 0;
+  var vote = 1;
+  var result = "";
  
   con.query("SELECT COUNT(username),vote FROM voting WHERE date = CURRENT_DATE  GROUP BY vote ORDER BY vote DESC", function (err, result) {
+
+
+
     console.log("Did query")
     if (err) {
       console.log(err)
@@ -264,29 +269,29 @@ var tally = function() {
     } catch (error) {
       vote = 1;
     }
-  })
-    
+
     console.log(vote)
 
-    if (vote = 1) {
-      var result = "data";
+
+    if (vote == 1) {
+       result = "data";
     } else {
-      var result = "data" + vote;
+       result = "data" + vote;
     }
 
-  
+    console.log(result);
 
-
-  fs.writeFileSync('/HOME/worlds',result, err => {
-
-      if (err) {
-          console.log("Error writing file");
-      } else {
-          console.log("File written successfully")
+    fs.writeFile(".\worlds", result, function(err) {
+      if(err) {
+          return console.log(err);
       }
+      console.log("The file was saved!");
 
-  })
+    }); 
 
+  }); 
+
+  
 
 }
 
