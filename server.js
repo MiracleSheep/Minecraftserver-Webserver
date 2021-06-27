@@ -7,8 +7,19 @@ var path = require('path');
 var env = require('dotenv').config();
 const { time } = require('console');
 const querystring = require('querystring');
-const CronJob = require('cron').CronJob;
+// const CronJob = require('cron').CronJob;
+const schedule = require('node-schedule');
 const fs = require('fs');
+
+const port = process.env.NODE_LOCAL_PORT;
+
+//using modules
+app = express();
+app.use(session({
+	secret: process.env.SECRET,
+	resave: true,
+	saveUninitialized: true
+}));
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
@@ -224,32 +235,32 @@ app.post('/data', (req,res) => {
 
 //This is the cron function that tallies the voes everyday at 12:55
 
-schedule.scheduleJob('40 15 * * *', function(){
+var tallyvotes = new schedule.scheduleJob('40 15 * * *', function(){
   console.log("Time functuion called")
   tally()
   
 
 })
 
-var job = new CronJob('00 05 23 * * 1-7', function() {
-  /*
-   * Runs every day
-   * at 12:00:00 AM.
-   * 
-   *
-  */
+// var job = new CronJob('00 05 23 * * 1-7', function() {
+//   /*
+//    * Runs every day
+//    * at 12:00:00 AM.
+//    * 
+//    *
+//   */
 
-  console.log("Time functuion called")
-  tally()
+//   console.log("Time functuion called")
+//   tally()
 
-  }, function () {
-   /* This function is executed when the job stops */
-   console.log("Time functuion called")
-  tally()
-  },
-   true, /* Start the job right now */
-   timeZone /* Time zone of this job. */
-  );
+//   }, function () {
+//    /* This function is executed when the job stops */
+//    console.log("Time functuion called")
+//   tally()
+//   },
+//    true, /* Start the job right now */
+//    timeZone /* Time zone of this job. */
+//   );
 
 //seperate cron function and tally function so tally can be called multiple times when I want
 
