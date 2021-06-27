@@ -22,7 +22,7 @@ services:
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
     volumes: 
-      - ./app:/app
+      - ../control:/app
     depends_on:
       - mysqldb
     command: sh -c "/wait && node server.js"
