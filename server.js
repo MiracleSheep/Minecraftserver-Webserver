@@ -235,7 +235,7 @@ app.post('/data', (req,res) => {
 
 //This is the cron function that tallies the voes everyday at 12:55
 
-var tallyvotes = new schedule.scheduleJob('40 15 * * *', function(){
+var tallyvotes = new schedule.scheduleJob('14 09 * * *', function(){
   console.log("Time functuion called")
   tally()
   
