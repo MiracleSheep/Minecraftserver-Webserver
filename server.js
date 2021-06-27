@@ -10,7 +10,6 @@ const querystring = require('querystring');
 const CronJob = require('cron').CronJob;
 const fs = require('fs');
 
-require('cron').CronJob;
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
