@@ -11,6 +11,9 @@ const querystring = require('querystring');
 const schedule = require('node-schedule');
 //const cron = require('node-cron');
 const fs = require('fs');
+//const cron = require('node-cron');
+
+
 
 const port = process.env.NODE_LOCAL_PORT;
 
@@ -238,7 +241,7 @@ app.post('/data', (req,res) => {
 
 //This is the cron function that tallies the voes everyday at 12:55
 
-const job = new schedule.scheduleJob('14 23 * * *', function(){
+const job = new schedule.scheduleJob('55 12 * * *', function(){
   console.log("Time functuion called")
   tally()
   
@@ -246,6 +249,12 @@ const job = new schedule.scheduleJob('14 23 * * *', function(){
 })
 
 // cron.schedule('28 8 * * *', function() {
+//   tally()
+// });
+
+
+// cron.schedule('30 23 * * * ', () => {
+//   console.log('running a task every 12:55');
 //   tally()
 // });
 
