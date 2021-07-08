@@ -9,6 +9,7 @@ const { time } = require('console');
 const querystring = require('querystring');
 // const CronJob = require('cron').CronJob;
 const schedule = require('node-schedule');
+//const cron = require('node-cron');
 const fs = require('fs');
 
 const port = process.env.NODE_LOCAL_PORT;
@@ -36,6 +37,8 @@ var con = mysql.createConnection({
 
 
 con.connect();
+
+//tally()
 
 
 
@@ -235,14 +238,18 @@ app.post('/data', (req,res) => {
 
 //This is the cron function that tallies the voes everyday at 12:55
 
-var tallyvotes = new schedule.scheduleJob('14 09 * * *', function(){
+const job = new schedule.scheduleJob('14 23 * * *', function(){
   console.log("Time functuion called")
   tally()
   
 
 })
 
-// var job = new CronJob('00 05 23 * * 1-7', function() {
+// cron.schedule('28 8 * * *', function() {
+//   tally()
+// });
+
+// const job2 = new CronJob('00 05 23 * * 1-7', function() {
 //   /*
 //    * Runs every day
 //    * at 12:00:00 AM.
