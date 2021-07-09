@@ -1,7 +1,14 @@
 FROM node:14
 
+
+ENV TZ=America/New_York
+
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Create app directory
 WORKDIR /usr/src/app
+
+
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied

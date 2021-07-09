@@ -7,12 +7,8 @@ var path = require('path');
 var env = require('dotenv').config();
 const { time } = require('console');
 const querystring = require('querystring');
-// const CronJob = require('cron').CronJob;
 const schedule = require('node-schedule');
-//const cron = require('node-cron');
 const fs = require('fs');
-//const cron = require('node-cron');
-
 
 
 const port = process.env.NODE_LOCAL_PORT;
@@ -40,10 +36,6 @@ var con = mysql.createConnection({
 
 
 con.connect();
-
-//tally()
-
-
 
 
 //None of these pages require authentication
@@ -239,47 +231,14 @@ app.post('/data', (req,res) => {
 });
 
 
-//This is the cron function that tallies the voes everyday at 12:55
 
-const job = new schedule.scheduleJob('55 12 * * *', function(){
+//This is the cron function that tallies the voes everyday at 12:55
+const job = schedule.scheduleJob('55 12 * * *', function(){
   console.log("Time functuion called")
   tally()
   
 
 })
-
-// cron.schedule('28 8 * * *', function() {
-//   tally()
-// });
-
-
-// cron.schedule('30 23 * * * ', () => {
-//   console.log('running a task every 12:55');
-//   tally()
-// });
-
-// const job2 = new CronJob('00 05 23 * * 1-7', function() {
-//   /*
-//    * Runs every day
-//    * at 12:00:00 AM.
-//    * 
-//    *
-//   */
-
-//   console.log("Time functuion called")
-//   tally()
-
-//   }, function () {
-//    /* This function is executed when the job stops */
-//    console.log("Time functuion called")
-//   tally()
-//   },
-//    true, /* Start the job right now */
-//    timeZone /* Time zone of this job. */
-//   );
-
-//seperate cron function and tally function so tally can be called multiple times when I want
-
 
 
 
@@ -309,12 +268,12 @@ function tally() {
     if (vote == 1) {
        result = "data";
     } else {
-       result = "data" + vote;
+       result = "data" + (vote-1);
     }
 
     console.log(result);
 
-    fs.writeFile("/app/.worlds", result, function(err) {
+    fs.writeFile(process.env.WORLD_PRINT, result, function(err) {
       if(err) {
           return console.log(err);
       }
