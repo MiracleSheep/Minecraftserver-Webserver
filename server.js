@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 //This stores information relating to the connection to the database
-var con = mysql.createConnection({  
+var con = mysql.createPool({  
   host: process.env.MYSQL_HOST,  
   user: process.env.MYSQL_USERNAME,  
   password: process.env.MYSQL_ROOT_PASSWORD,
@@ -35,7 +35,7 @@ var con = mysql.createConnection({
 
 
 
-con.connect();
+
 
 
 //None of these pages require authentication
