@@ -12,6 +12,7 @@ services:
       TZ: America/New_York
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
+    restart: always
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/mysql
@@ -22,6 +23,7 @@ services:
     env_file: ./.env
     ports:
       - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    restart: always
     volumes:
       - ../control:/app
     depends_on:
