@@ -17,7 +17,7 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/mysql
   app:
-    build:
+    build: 
       context: .
     image: miraclesheep/minecraft-webserver:latest
     env_file: ./.env
@@ -37,6 +37,16 @@ services:
     container_name: minecraft-webserver
     stdin_open: true
     tty: true
+
+  assistantbot:
+    build: https://github.com/MiracleSheep/Javascript_Discord_ServerAssistantBot.git
+    image: assistantbot
+    container_name: the_assistantbot
+    restart: always
+    env_file: ./.env
+    volumes: 
+     - /usr/src/bot:/bot
+
 
 volumes:
   db-data:
