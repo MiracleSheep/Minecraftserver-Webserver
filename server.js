@@ -134,6 +134,18 @@ app.get('/homeauth', (req,res) => {
 
 })
 
+app.get('/history', (req,res) => {
+  
+  if (req.session.loggedin) {
+    console.log("access granted")
+		res.sendFile(__dirname+'/webpage/Access/history.html')
+	} else {
+		res.sendFile(__dirname+'/webpage/Visiting/denied.html');
+	}
+	
+
+})
+
 app.get('/aboutauth', (req,res) => {
   
   if (req.session.loggedin) {
