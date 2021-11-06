@@ -146,8 +146,19 @@ app.get('/history', (req,res) => {
 
 })
 
-app.get('/aboutauth', (req,res) => {
+
+app.get('/nothingdangerous', (req,res) => {
   
+		res.sendFile(__dirname+'/webpage/Visiting/spongebob.html')
+})
+
+app.get('/ip', (req,res) => {
+  ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  res.json({ ip });
+})
+
+app.get('/aboutauth', (req,res) => {
+   
   if (req.session.loggedin) {
     console.log("access granted")
 		res.sendFile(__dirname+'/webpage/Access/aboutauth.html')

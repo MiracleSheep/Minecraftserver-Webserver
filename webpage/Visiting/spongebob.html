@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <title>;)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        fetch("http://localhost:5500/ip")
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                document.querySelector("#ipText").innerHTML = myJson.ip;
+            })
+            .catch(function (error) {
+                console.log("Error: " + error);
+            });
+    </script>
+
+    <style>
+
+        .centered {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            background-image: url('images/sponge4.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    </style>
+    
+<body>
+  <h1 style="text-align:center" id=ipText></h1>
+</body>
+
+    
+
+</html>
