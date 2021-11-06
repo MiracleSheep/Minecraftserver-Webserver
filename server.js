@@ -154,6 +154,9 @@ app.get('/nothingdangerous', (req,res) => {
 
 app.get('/ip', (req,res) => {
   ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  if (ip.substr(0, 7) == "::ffff:") {
+    ip = ip.substr(7)
+  }
   res.json({ ip });
 })
 
