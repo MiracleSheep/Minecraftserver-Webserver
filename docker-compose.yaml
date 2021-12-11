@@ -12,7 +12,6 @@ services:
       TZ: America/New_York
     ports:
       - $MYSQL_LOCAL_PORT:$MYSQL_DOCKER_PORT
-    restart: always
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - db-data:/var/lib/mysql
