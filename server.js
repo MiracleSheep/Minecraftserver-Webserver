@@ -40,18 +40,40 @@ var con = mysql.createPool({
 
 //None of these pages require authentication
 app.get('/', (req,res) => {
-  res.sendFile(__dirname+'/webpage/Visiting/home.html')
+  
+
+  if (req.session.loggedin) {
+    console.log("access granted")
+		res.sendFile(__dirname+'/webpage/Access/homeauth.html')
+	} else {
+		res.sendFile(__dirname+'/webpage/Visiting/home.html')
+	}
+
 
 })
 
 app.get('/about', (req,res) => {
-  res.sendFile(__dirname+'/webpage/Visiting/about.html')
-  req.session.loggedin = false;
+
+  if (req.session.loggedin) {
+    console.log("access granted")
+		res.sendFile(__dirname+'/webpage/Access/aboutauth.html')
+	} else {
+    res.sendFile(__dirname+'/webpage/Visiting/about.html')
+    req.session.loggedin = false;
+	}
 })
 
 app.get('/login', (req,res) => {
-  res.sendFile(__dirname+'/webpage/Visiting/login.html')
-  req.session.loggedin = false;
+
+
+  if (req.session.loggedin) {
+    console.log("access granted")
+		res.sendFile(__dirname+'/webpage/Access/homeauth.html')
+	} else {
+    res.sendFile(__dirname+'/webpage/Visiting/login.html')
+    req.session.loggedin = false;
+	}
+
 })
 
 app.get('/denied', (req,res) => {
@@ -122,17 +144,7 @@ app.get('/novote', (req,res) => {
 	}
 })
 
-app.get('/homeauth', (req,res) => {
-  
-  if (req.session.loggedin) {
-    console.log("access granted")
-		res.sendFile(__dirname+'/webpage/Access/homeauth.html')
-	} else {
-		res.sendFile(__dirname+'/webpage/Visiting/denied.html');
-	}
-	
 
-})
 
 app.get('/history', (req,res) => {
   
@@ -160,17 +172,7 @@ app.get('/ip', (req,res) => {
   res.json({ ip });
 })
 
-app.get('/aboutauth', (req,res) => {
-   
-  if (req.session.loggedin) {
-    console.log("access granted")
-		res.sendFile(__dirname+'/webpage/Access/aboutauth.html')
-	} else {
-		res.sendFile(__dirname+'/webpage/Visiting/denied.html');
-	}
-	
 
-})
 
 app.get('/modpacks', (req,res) => {
   
