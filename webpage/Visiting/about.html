@@ -59,13 +59,45 @@ div.desc {
   clear: both;
 }
 
+a{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+}
 
+a span{
+  position: relative;
+  z-index: 2;
+}
 
+a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #20191b;
+  transition: all .35s;
+}
 
+a:hover{
+  color: #fff;
+}
 
-
-
-
+a:hover:after{
+  width: 100%;
+}
 
 
     </style>
@@ -79,9 +111,9 @@ div.desc {
       <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
     </div>
     <div class="w3-bar-block">
-      <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-      <a href="/about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
-      <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
+      <a href="/" onclick="w3_close()" class="w3-bar-item"><span>Home</span></a>
+      <a href="/about" onclick="w3_close()" class="w3-bar-item"><span>About</span></a> 
+      <a href="/login" onclick="w3_close()" class="w3-bar-item"><span>Login</span></a>
 
 
 
@@ -99,6 +131,7 @@ div.desc {
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
+
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:40px" id="showcase">

@@ -11,6 +11,46 @@
     body {font-size:16px;}
     .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
     .w3-half img:hover{opacity:1}
+
+    a{
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all .35s;
+}
+
+a span{
+  position: relative;
+  z-index: 2;
+}
+
+a:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #20191b;
+  transition: all .35s;
+}
+
+a:hover{
+  color: #fff;
+}
+
+a:hover:after{
+  width: 100%;
+}
     </style>
 
 <body>
@@ -21,14 +61,14 @@
       <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
     </div>
     <div class="w3-bar-block">
-      <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-      <a href="/about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
-      <a href="/history" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">History</a> 
-      <a href="/vote" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vote</a> 
-      <a href="/modpacks" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Modpacks</a> 
-      <a href="/plugins" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Plugins</a> 
-      <a href="/mods" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Mods</a> 
-      <a href="/other" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Other creations</a> 
+      <a href="/" onclick="w3_close()" class="w3-bar-item"><span>Home</span></a> 
+      <a href="/about" onclick="w3_close()" class="w3-bar-item"><span>About</span></a> 
+      <a href="/history" onclick="w3_close()" class="w3-bar-item"><span>History</span></a> 
+      <a href="/vote" onclick="w3_close()" class="w3-bar-item "><span>Vote</span></a> 
+      <a href="/modpacks" onclick="w3_close()" class="w3-bar-item "><span>Modpacks</span></a> 
+      <a href="/plugins" onclick="w3_close()" class="w3-bar-item "><span>Plugins</span></a> 
+      <a href="/mods" onclick="w3_close()" class="w3-bar-item "><span>Mods</span></a> 
+      <a href="/other" onclick="w3_close()" class="w3-bar-item "><span>Other creations</span></a> 
 
 
     </div>
