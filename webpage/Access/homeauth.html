@@ -6,96 +6,467 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    
     <style>
-    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-    body {font-size:16px;}
-    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-    .w3-half img:hover{opacity:1}
-    </style>
+
+      body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+      body {font-size:16px;}
+      .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+      .w3-half img:hover{opacity:1}
+
+      * {
+        box-sizing: inherit;
+        transition-property: all;
+        transition-duration: .6s;
+        transition-timing-function: ease;
+      }
+
+      html,
+      body {
+        box-sizing: border-box;
+        height: 100%;
+        width: 100%;
+      }
+
+
+.container { 
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1em;
+    text-align: center; 
+    
+    @media (min-width: 600px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.btn-2 {
+    letter-spacing: 0;
+}
+
+.btn-2:hover,
+.btn-2:active {
+  letter-spacing: 5px;
+}
+
+.btn-2:after,
+.btn-2:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(#fff, 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.btn-2:hover:after,
+.btn-2:hover:before {
+  backface-visibility: hidden;
+  border-color: #fff;
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+.btn-2:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+
+.custom-shape-divider-top-1639489475 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1639489475 svg {
+    position: relative;
+    display: block;
+    width: calc(103% + 1.3px);
+    height: 150px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1639489475 .shape-fill {
+    fill: #F44336;
+}
+
+
+
+
+
+.custom-shape-divider-top-1639490320 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1639490320 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 170px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1639490320 .shape-fill {
+    fill: #FFFFFF;
+}
+
+
+.custom-shape-divider-top-1639532973 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1639532973 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+.custom-shape-divider-top-1639532973 .shape-fill {
+    fill: #FFFFFF;
+}
+
+nav {
+  width: 80%;
+  margin: 0 auto;
+  background: #F44336;
+  padding: 50px 0;
+}
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+}
+nav ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+nav ul li a:hover {
+  color: #555;
+}
+
+/* stroke */
+nav.stroke ul li a,
+nav.fill ul li a {
+  position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+nav.stroke ul li a:hover:after {
+  width: 100%;
+}
+
+nav.fill ul li a {
+  transition: all 2s;
+}
+
+nav.fill ul li a:after {
+  text-align: left;
+  content: '.';
+  margin: 0;
+  opacity: 0;
+}
+nav.fill ul li a:hover {
+  color: #fff;
+  z-index: 1;
+}
+nav.fill ul li a:hover:after {
+  z-index: -10;
+  animation: fill 1s forwards;
+  -webkit-animation: fill 1s forwards;
+  -moz-animation: fill 1s forwards;
+  opacity: 1;
+}
+
+
+/* SHIFT */
+nav.shift ul li a {
+  position:relative;
+  z-index: 1;
+}
+nav.shift ul li a:hover {
+  color: #91640F;
+}
+nav.shift ul li a:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  content: '.';
+  color: transparent;
+  background: #F1C40F;
+  visibility: none;
+  opacity: 0;
+  z-index: -1;
+}
+nav.shift ul li a:hover:after {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
+}
+
+
+
+/* Keyframes */
+@-webkit-keyframes fill {
+  0% {
+    width: 0%;
+    height: 1px;
+  }
+  50% {
+    width: 100%;
+    height: 1px;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    background: #333;
+  }
+}
+
+.button1 {
+  display: inline-block;
+  border-radius: 12px;
+  background-color: #000000;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+}
+
+.button1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+/* Style all font awesome icons */
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* discord */
+.fa-discord {
+  background: #767b86;
+  color: white;
+}
+
+</style>
+
+
 
 <body>
 
-  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-    <div class="w3-container">
-      <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
-    </div>
-    <div class="w3-bar-block">
-      <a href="/homeauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-      <a href="/aboutauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
-      <a href="/history" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">History</a> 
-      <a href="/vote" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vote</a> 
-      <a href="/modpacks" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Modpacks</a> 
-      <a href="/plugins" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Plugins</a> 
-      <a href="/mods" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Mods</a> 
-      <a href="/other" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Other creations</a> 
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/homeauth" class="w3-bar-item w3-button w3-hide-small w3-padding-large btn btn-2">Home</a>
+    <a href="/aboutauth" class="w3-bar-item w3-button w3-padding-large btn btn-2">About</a>
+    <a href="/history" class="w3-bar-item w3-button w3-padding-large btn btn-2">History</a>
+    <a href="/vote" class="w3-bar-item w3-button w3-padding-large btn btn-2">Vote</a>
+    <a href="/modpacks" class="w3-bar-item w3-button w3-padding-large btn btn-2">Modpacks</a>
+    <a href="/plugins" class="w3-bar-item w3-button w3-padding-large btn btn-2">Plugins</a>
+    <a href="/mods" class="w3-bar-item w3-button w3-padding-large btn btn-2">Mods</a>
+    <a href="/other" class="w3-bar-item w3-button w3-padding-large btn btn-2">Other creations</a>
+  </div>
 
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="/aboutauth" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="/history" class="w3-bar-item w3-button w3-padding-large">History</a>
+    <a href="/vote" class="w3-bar-item w3-button w3-padding-large">Vote</a>
+    <a href="/modpacks" class="w3-bar-item w3-button w3-padding-large">Modpacks</a>
+    <a href="/plugins" class="w3-bar-item w3-button w3-padding-large">Plugins</a>
+    <a href="/mods" class="w3-bar-item w3-button w3-padding-large">Mods</a>
+    <a href="/other" class="w3-bar-item w3-button w3-padding-large">Other Creations</a>
+  </div>
+</div>
 
-    </div>
-  </nav>
-
-  <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>MiracleSheep server</span>
+<section style="position: relative;">!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">MiracleSheep's Server</h1>
+  <p class="w3-xlarge"></p>
+  <nav class="fill">
+    <a class="button1" style="vertical-align:middle" href="/vote"><span>Vote </span></a>
+  <!-- w3-button w3-black w3-padding-large w3-large w3-margin-top -->
 </header>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="custom-shape-divider-top-1639489475">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
+</section>
 
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="showcase">
-    <div>
-    <h1 class="w3-jumbo"><b>MiracleSheep's server</b></h1>
+<section style="position: relative;">
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div style="text-align: center;">
+      <h1>Welcome!</h1>
+      <h5 class="w3-padding-32" style="text-align: left;">This is a website created for the MiracleSheep Minecraft server and Discord server! It contains many memories of the server. It also has a few other secret features only accessible by members of the server. We do all sorts of Minecraft activities, such as hardcore group speedruns, vanilla and modded survival worlds, as well as adventure maps. Enjoy exploring our website!</h5>
+
     </div>
+
+    <div class="w3-third w3-center">
+      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+    </div>
+
+
   </div>
-  <img src="/images/sheep.png" style="float: right; margin: 40px;">
-  <div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>What am I looking at?</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+</div>
+</section>
 
-    <p>This is a website created for the MiracleSheep minecraft server!</p>
-    <p> It contains many memories members of the server. It also has a few other features only accessible by members of the server.     </p>
+<section style="position: relative;">
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+    </div>
+
+
+      <h1 class="w3-twothird" style="float: left;">How do I become a server member?</h1>
+      <h5 class="w3-padding-32 w3-twothird" style="float: left;">To become a server member, You need to know MiracleSheep or another member of the server. All you have to do is ask, and then you are added to both the minecraft server and the discord. Ask MiracleSheep about having an account on this website.</h5>
+
   </div>
+  <img src="/images/sheep.png" style="float: right; padding-right: 10%;">
+</div>
 
-  <!-- How to become a server member -->
-  <div>
+<div class="custom-shape-divider-top-1639532973">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="shape-fill"></path>
+  </svg>
+</div>
 
-    <h1 class="w3-xxxlarge w3-text-red"><b>How do I become a server member?</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+</section>
 
-    <p>To become a server member, You need to know MiracleSheep or another member of the server. </p>
-    <p>All you have to do is ask, and then you are added to both the minecraft server and the discord. </p>
-    <p>Ask MiracleSheep about having an account on this website.</p>
-    <img src="/images/discordpfp.png">
-  </div>
+<section style="position: relative;">
+<div class="w3-container w3-gray w3-center w3-padding-64">
+  <img src="/images/discordpfp.png">
+</div>
+
+</section>
 
 
-  <script>
-    // Script to open and close sidebar
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-    }
-     
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-    }
-    
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
-    }
-    </script>
+<section>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+ <p>Made by John Khalife></p>
+</footer>
+</section>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { docker-caches
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
 
 
 
 </body>
 </html>
+
+
+
+
