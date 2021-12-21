@@ -6,61 +6,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="basecss.css">
+    
     <style>
-    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-    body {font-size:16px;}
-    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-    .w3-half img:hover{opacity:1}
-   
-    div.gallery {
-  border: 1px solid #ccc;
+
+.mySlides1, .mySlides2 {display: none}  
+
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+}
+body {
+    background: #fff;
+    padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
 }
 
-div.gallery:hover {
-  border: 1px solid #777;
+img {
+    width:  100%;
+    height: 500px;
+    object-fit: scale-down;
 }
 
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.responsive {
-  padding: 0 6px;
-  float: left;
-  width: 24.99999%;
-}
-
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .responsive {
+.header {
+    display: block;
+    margin: 0 auto;
     width: 100%;
-  }
+    max-width: 100%;
+    box-shadow: none;
+    background-color: #F44336;
+    position:fixed;
+    height: 80px!important;
+    overflow: hidden;
+    z-index: 10;
 }
 
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
+#center {
+  transition: margin-left 0.5s;
+}
+
+.main {
+    margin: 0 auto;
+    display: block;
+    height: 100%;
+    margin-top: 60px;
+    transition: 0.5s;
+}
+.mainInner{
+    display: table;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    transition: 0.5s;
+}
+.mainInner div{
+    display:table-cell;
+    vertical-align: middle;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: 1.25px;
+    transition: 0.5s;
+}
+#sidebarMenu {
+    height: 100%;
+    position: fixed;
+    left: 0;
+    width:15%;
+    margin-top: 80px;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+    background: #F44336;
+}
+.sidebarMenuInner{
+    margin:0;
+    padding:0;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li{
+    list-style: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 20px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.sidebarMenuInner li span{
+    display: block;
+    font-size: 14px;
+}
+.sidebarMenuInner li a{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+}
+input[type="checkbox"]:checked ~ #sidebarMenu {
+    transform: translateX(0); 
 }
 
 
-a{
+input[type=checkbox] {
+    transition: 0.5s;
+    box-sizing: border-box;
+    display: none;
+}
+.sidebarIconToggle {
+    transition: 0.5s;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 22px;
+}
+.spinner {
+    transition: 0.5s;
+    box-sizing: border-box;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+}
+.horizontal {
+    transition: 0.5s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+.diagonal.part-1 {
+    position: relative;
+    transition: 0.5s;
+    box-sizing: border-box;
+    float: left;
+}
+.diagonal.part-2 {
+    transition: 0.5s;
+    box-sizing: border-box;
+    position: relative;
+    float: left;
+    margin-top: 3px;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+    transition: 0.5s;
+    box-sizing: border-box;
+    opacity: 0;
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+    transition: 0.5s;
+    box-sizing: border-box;
+    transform: rotate(135deg);
+    margin-top: 8px;
+    
+}
+input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+    transition: 0.5s;
+    box-sizing: border-box;
+    transform: rotate(-135deg);
+    margin-top: -9px;
+    
+}
+
+.a1{
   display: block;
   width: 200px;
   height: 40px;
@@ -69,19 +184,19 @@ a{
   font-family: sans-serif;
   text-decoration: none;
   color: #333;
-  border: 2px solid #333;
+
   letter-spacing: 2px;
   text-align: center;
   position: relative;
-  transition: all .35s;
+  transition: .35s;
 }
 
-a span{
+.a1 span{
   position: relative;
   z-index: 2;
 }
 
-a:after{
+.a1:after{
   position: absolute;
   content: "";
   top: 0;
@@ -89,20 +204,104 @@ a:after{
   width: 0;
   height: 100%;
   background: #20191b;
-  transition: all .35s;
+  transition: .35s;
 }
 
-a:hover{
+.a1:hover{
   color: #fff;
 }
 
-a:hover:after{
+.a1:hover:after{
   width: 100%;
 }
 
+/* Slideshow container */
+.slideshow-container {
+  width: 50%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+  text-align: center;
+  justify-self:center;
+}
 
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
 
+.active, .dot:hover {
+  background-color: #717171;
+}
 
+/* Next & previous buttons */
+.prev, .next {
+  background-color: #F44336;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 50%;
+  user-select: none;
+
+}
+
+/* Position the "next button" to the right */
+.next {
+  right:0;
+  border-radius: 50%;
+  transform: translateX(50px);
+}
+
+/* Position the "next button" to the right */
+.prev {
+  left:0;
+  border-radius: 50%;
+  transform: translateX(-50px);
+}
+
+/* On hover, add a grey background color */
+.prev:hover, .next:hover {
+  background-color:salmon;
+  color: black;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
 
 
 
@@ -110,186 +309,340 @@ a:hover:after{
 
 <body>
 
-    <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-        <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-        <div class="w3-container">
-          <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
-        </div>
-        <div class="w3-bar-block">
-          <a href="/" onclick="w3_close()" class="w3-bar-item"><span>Home</span></a> 
-          <a href="/about" onclick="w3_close()" class="w3-bar-item"><span>About</span></a>
-          <a href="/history" onclick="w3_close()" class="w3-bar-item "><span>History</span></a>  
-          <a href="/vote" onclick="w3_close()" class="w3-bar-item "><span>Vote</span></a> 
-          <a href="/modpacks" onclick="w3_close()" class="w3-bar-item "><span>Modpacks</span></a> 
-          <a href="/plugins" onclick="w3_close()" class="w3-bar-item "><span>Plugins</span></a> 
-          <a href="/mods" onclick="w3_close()" class="w3-bar-item "><span>Mods</span></a> 
-          <a href="/other" onclick="w3_close()" class="w3-bar-item "><span>Other creations</span></a> 
-    
-    
-        </div>
-      </nav>
 
-  <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>MiracleSheep server</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="showcase">
-    <div>
-    <h1 class="w3-jumbo"><b>About the server</b></h1>
-    </div>
-  </div>
-  <img src="/images/sheep.png" style="float: right;">
-  <div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>What is the server?</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>This website is based around a community minecraft server.</p>
-    <p>It's simply called MiracleSheep's minecraft server, and it's used for everything minecraft. </p>
-    <p>We do both vanilla and modded minecraft multiplayer.</p>
-    <p>We also do the occasional event which can involve hardcore, mods, plugins, and adventure maps.</p>
-  </div>
+  <div id="topbar" class="header" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+  <h1 style="text-align: center; color: white; vertical-align: middle; font-family: 'Varela Round', sans-serif;">MiracleSheep's Server</h1></div>
+  <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="w3_trigger()">
+  <label for="openSidebarMenu" class="sidebarIconToggle">
+    <div class="spinner diagonal part-1"></div>
+    <div class="spinner horizontal"></div>
+    <div class="spinner diagonal part-2"></div>
+  </label>
 
 
-  <div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Memories</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
 
-    <p>Here are some of the cool moments from events had on the server:</p>
-
+  <div id="sidebarMenu">
+    <ul class="sidebarMenuInner">
+      <li>MiracleSheep Server <span style="color: rgba(255, 255, 255, 0.50);">By John Khalife</span></li>
+    <li><a href="/" class="a1"><span>Home</span></a></li>
+  <li><a href="/about" class="a1"><span>About</span></a> </li>
+<li><a href="/history" class="a1"><span>History</span></a></li>
+<li><a href="/vote" class="a1"><span>Vote</span></a></li>
+<li><a href="/modpacks" class="a1"><span>Modpacks</span></a></li>
+<li><a href="/plugins" class="a1"><span>Plugins</span></a></li>
+<li><a href="/mods" class="a1"><span>Mods</span></a></li>
+<li><a href="/other" class="a1"><span>Other Creations</span></a></li>
+    </ul>
   </div>
 
   
-  <!-- Photo grid (modal) -->
-  <div class="w3-row-padding">
-    <div class="w3-half">
-      <img src="/images/Speedrun8.png" style="width:100%" onclick="onClick(this)" alt="Our first hardcore speedrun with a hardcore revival plugin. Participants: Xtreem_Piggy17, MiracleSheep, Crazyfr0g_ and TyphoonChicken." width="600" height="400">
-      <img src="/images/Speedrun3.png" style="width:100%" onclick="onClick(this)" alt="A hardcore speedrun in an amplified world with MiracleSheep, Xtreem_Piggy17 and TyphoonChicken." width="600" height="400">
-      <img src="/images/Speedrun5.png" style="width:100%" onclick="onClick(this)" alt="Photo with Xtreem_piggy17, Crazyfr0g_, MiracleSheep and TyphoonChicken beside the dragon egg." width="600" height="400">
-    </div>
-
-    <div class="w3-half">
-      <img src="/images/Aether.png" style="width:100%" onclick="onClick(this)" alt="Fighting the aether sun god with Xtreem_Piggy17, MiracleSheep, Crazyfr0g_ and Orangeboy342." width="600" height="400">
-      <img src= "/images/Speedrun.png" style="width:100%" onclick="onClick(this)" alt="One of our largest hardcore challenges, involving MiracleSheep, TyphoonChicken, FtPigeon, Xtreem_Piggy17, Crazyfr0g_ and Orangeboy342." width="600" height="400">
-      <img src="/images/Speedrun7.png" style="width:100%" onclick="onClick(this)" alt="One of our first hardcore speedruns, with MiracleSheep, Xtreem_Piggy17, Crazyfr0g_ and TyphoonChicken." width="600" height="400">
-    </div>
+  <div id='center' class="center" style="transition: margin-left 0.5s ease-in-out;">
+    
+      <!-- Header -->
+  <div class="w3-container" style="margin-top:90px" id="showcase">
   </div>
 
 
+  <section class="">
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div style="text-align: center;">
+          <h1 class="w3-xxxlarge w3-text-red w3-center">Who We Are</h1>
+          <h5 class="w3-padding-32" style="text-align: left;"> We are a group of friends who like playing Minecraft. We do everything you can do in Minecraft, from competitive pvp and adventure maps to modded or vanilla SMPs. The MiracleSheep server is owned by MiracleSheep (duh) and is used for many of these Minecraft related activities. This website was created for the purpose of celebrating what we've done and letting others see our creations. This page on the website is here to share some memories we've had on the server. Try clicking on each image below to see a short description! </h5>
+          <img style="margin-left: auto; margin-right: auto;" src="/images/sheep.png">
+        </div>
+    
+        <div class="w3-third w3-center">
+          <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+        </div>
+    
+    
+      </div>
+    </div>
+    </section>
+
+
+
+
+    <section class="w3-grey">
+      <div class="w3-row-padding w3-padding-64 w3-container">
+        <div class="w3-content">
+          <div style="text-align: center;">
+            <h1 class="w3-xxxlarge w3-text-red w3-center">Memories</h1>
+            <h5 class="w3-padding-32" style="text-align: left;">This section of the about page is meant to demonstrate some of the fun things we've done on the server. These are not planned events, but rather activities we've done without planning which turned out well. There are many images of speedruns in this section. Remember to click the images for a short description.</h5>
+      
+          </div>
+      
+          <div class="w3-third w3-center">
+            <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+          </div>
+      
+      
+        </div>
+      </div>
+      </section>
+
+
+<section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px;">
+
+  <div class="slideshow-container" style="background: white;">
+
+
+
+    <div class="mySlides1 fade">
+      <img src="/images/Speedrun8.png" style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" alt="Our first hardcore speedrun with a hardcore revival plugin with Xtreem_Piggy17, MiracleSheep, Crazyfr0g_ and TyphoonChicken." width="600" height="400">
+    </div>
+  
+    <div class="mySlides1 fade">
+      <img src="/images/Speedrun3.png" style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" alt="A hardcore speedrun in an amplified world with MiracleSheep, Xtreem_Piggy17 and TyphoonChicken." width="600" height="400">
+    </div>
+  
+    <div class="mySlides1 fade">
+      <img src="/images/Speedrun5.png" style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" alt="Photo with Xtreem_piggy17, Crazyfr0g_, MiracleSheep and TyphoonChicken beside the dragon egg." width="600" height="400">
+    </div>
+
+    <div class="mySlides1 fade">
+      <img src="/images/Aether.png" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" alt="Fighting the aether sun god with Xtreem_Piggy17, MiracleSheep, Crazyfr0g_ and Orangeboy342." width="600" height="400">
+    </div>
+
+    <div class="mySlides1 fade">
+      <img src= "/images/Speedrun.png" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" alt="One of our largest hardcore challenges, involving MiracleSheep, TyphoonChicken, FtPigeon, Xtreem_Piggy17, Crazyfr0g_ and Orangeboy342." width="600" height="400">
+    </div>
+
+    <div class="mySlides1 fade">
+      <img src="/images/Speedrun7.png" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" alt="One of our first hardcore speedruns, with MiracleSheep, Xtreem_Piggy17, Crazyfr0g_ and TyphoonChicken." width="600" height="400">
+    </div>
+
+    <div class="mySlides1 fade">
+      <img src="images/jpos.png" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" alt="A hardcore speedrun with MiracleSheep, Orangeboy342 and Xtreem_Piggy17 posing in front of the end portal." width="600" height="400">
+    </div>
+
+    <div class="mySlides1 fade">
+      <img src="images/endshadersspeedrun.png" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" alt="A hardcore speedrun with Xtreem_Piggy17, Orangeboy342, MiracleSheep and TyphoonAFK(TyphoonChicken) posing with the dragon egg." width="600" height="400">
+    </div>
+
+    <div class="mySlides1 fade">
+      <img src="images/Sam'sserver.png" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" alt="A temple built by Crazyfr0g_, MiracleSheep, Orangeboy342 and Xtreem_Piggy17 during a factions/civilisations event on another server named ATVcraft. The builders created a religious civilisation that followed the religion melonism." width="600" height="400">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+
+  </div>
+</section>
+
   <!-- Modal for full size images on click-->
-  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0;" onclick="this.style.display='none'">
     <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
     <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-      <img id="img01" class="w3-image">
+      <img id="img01" style="all: initial;" class="w3-image">
       <p id="caption"></p>
     </div>
   </div>
 
-  <div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>SMPs</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
 
-    <p>Here are some highlights from our SMPs:</p>
 
+
+  <section class="w3-grey">
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div style="text-align: center;">
+          <h1 class="w3-xxxlarge w3-text-red w3-center">SMPs</h1>
+          <h5 class="w3-padding-32" style="text-align: left;">The acronym SMP stands for Survival Multiplayer. We have had many of these worlds on the server, and this section is about showing what some of these SMPs look or looked like. Remember to click the images for a short description! </h5>
+    
+        </div>
+    
+        <div class="w3-third w3-center">
+          <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+        </div>
+    
+    
+      </div>
+    </div>
+    </section>
+
+
+  <section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px;">
+
+    <div class="slideshow-container" style="background: white;">
+  
+  
+      <div class="mySlides2 fade">
+        <img src="/images/Altar.png" style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" alt="An altar for the first command block placed in our first SMP (in vanilla minecraft). Made by Catdog04." width="600" height="400">
+      </div>
+    
+      <div class="mySlides2 fade">
+        <img src="/images/blastoff.png" style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" alt="MiracleSheep, Xtreem_Piggy17 and Crazyfr0g_ blasting off to the moon and winning the space race in the Race to the Moon SMP (inspired by the Race to the Moon let's play)." width="600" height="400">
+      </div>
+    
+      <div class="mySlides2 fade">
+        <img src="/images/Dragon_and_Elytra_Screenshot.png" alt="Photo of Catdog04 at his base on the first SMP." style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)"  width="600" height="400">
+      </div>
+  
+      <div class="mySlides2 fade">
+        <img src="/images/Isaac.png" alt="A image of Orangeboy342's base on the 2nd vanilla SMP." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" width="600" height="400">
+      </div>
+  
+      <div class="mySlides2 fade">
+        <img src="/images/John.png" alt="An image from MiracleSheep's base in the 2nd vanilla SMP." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+  
+      <div class="mySlides2 fade">
+        <img src="/images/Micah.png" alt="An image of TyphoonChicken's base on the 2nd vanilla SMP." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+      <div class="mySlides2 fade">
+        <img src="/images/Shop.png"alt="An image of the shopping district" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+      <div class="mySlides2 fade">
+        <img src="/images/Teo.png" alt="An image of NotZoyu's house on the 2nd vanilla SMP." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+      <div class="mySlides2 fade">
+        <img src="/images/statue.png" alt="An image of a statue built by Xtreem_Piggy17 on the 2nd vanilla SMP." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+      <div class="mySlides2 fade">
+        <img src="/images/isaacdragon.png" alt="An image of Orangeboy342 with his dragonbone forge on the Avatar SMP" style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+  
+      <div class="mySlides2 fade">
+        <img src="images/dragonruins.png" alt="The ruins of the group starter base on the Avatar SMP after it was attacked by a dragon." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+      <div class="mySlides2 fade">
+        <img src="images/dragonruins.png" alt="The ruins of the group starter base on the Avatar SMP after it was attacked by a dragon." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+      <div class="mySlides2 fade">
+        <img src="images/magichut.png" alt="The starter base of MiracleSheep, Xtreem_Piggy17 and Orangeboy342 on the Avatar SMP." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+      <div class="mySlides2 fade">
+        <img src="images/parhaminfrontofhub.png" alt="Xtreem_Piggy17 standing in front of his team's starter base on the Avatar SMP." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)" width="600" height="400">
+      </div>
+
+
+      <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+  
+    </div>
+  </section>
+
+  <section class="w3-grey">
+    <div class="w3-row-padding w3-padding-64 w3-container">
+      <div class="w3-content">
+        <div style="text-align: center;">
+          <h1 class="w3-xxxlarge w3-text-red w3-center">Events</h1>
+          <h5 class="w3-padding-32" style="text-align: left;">From time to time, we have planned events on the server. These usualy involved adventure maps and are done in larger groups. These events are only temporary and event worlds are not saved. Remember to click on each image for a short description!</h5>
+    
+        </div>
+    
+        <div class="w3-third w3-center">
+          <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+        </div>
+    
+    
+      </div>
+    </div>
+    </section>
+
+
+      <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0;" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" style="all: initial;" class="w3-image">
+      <p id="caption"></p>
+    </div>
   </div>
 
-    <!-- Photo grid (modal) -->
-    <div class="w3-row-padding">
-      <div class="w3-half">
-        <img src="/images/Altar.png" style="width:100%" onclick="onClick(this)" alt="An altar for the first command block placed in our first SMP. Made by Catdog04." width="600" height="400">
-        <img src="/images/blastoff.png" style="width:100%" onclick="onClick(this)" alt="MiracleSheep, Xtreem_Piggy17 and Crazyfr0g_ blasting off to the moon and winning the space race in the Race to the Moon SMP (inspired by the Race to the Moon let's play)." width="600" height="400">
-        <img src="/images/Dragon_and_Elytra_Screenshot.png" style="width:100%" onclick="onClick(this)" alt="Photo of Catdog04 at his base on the first SMP." width="600" height="400">
+    <section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px;">
+
+      <div class="slideshow-container" style="background: white;">
+    
+    
+        <div class="mySlides3 fade">
+          <img src="images/Terraswoopforce.png" alt="An image of Xtreem_Piggy17, MiracleSheep, NotZoyu, Orangeboy342, and ShortPigeon in wingsuits playing the map Terra Swoop Force." style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" width="600" height="400">
+        </div>
+      
+        <div class="mySlides3 fade">
+          <img src="images/terraswoopforce3.png" alt="An image of ShortPigeon looking out at the controls of a drill in the map Terra Swoop Force." style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" width="600" height="400">
+        </div>
+      
+        <div class="mySlides3 fade">
+          <img src="images/HauntedHouse.png" alt="An image of a TyphoonChicken, Xtreem_Piggy17 and MiracleSheep exploring a haunted house in the map Redmoore Mansion." style="padding:15px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;" onclick="onClick(this)"  width="600" height="400">
+        </div>
+    
+        <div class="mySlides3 fade">
+          <img src="images/terraswoopforce2.png" alt="An image of Orangeboy342 and Xtreem_Piggy17 looking at the core of earth in the map Terra Swoop Force." style="padding:5px; border: 5px solid; border-color: #F44336; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" onclick="onClick(this)" width="600" height="400">
+        </div>
+    
+    
+        <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
+    
       </div>
-  
-      <div class="w3-half">
-        <img src="/images/Isaac.png" style="width:100%" onclick="onClick(this)" alt="A image of Orangeboy342's base on the 2nd vanilla SMP." width="600" height="400">
-        <img src= "/images/John.png" style="width:100%" onclick="onClick(this)" alt="An image from MiracleSheep's base in the 2nd vanilla SMP." width="600" height="400">
-        <img src="/images/Micah.png" style="width:100%" onclick="onClick(this)" alt="An image of TyphoonChicken's base on the 2nd vanilla SMP." width="600" height="400">
-      </div>
+    </section>
+
     </div>
-
-    <div class="w3-row-padding">
-      <div class="w3-half">
-        <img src="/images/Shop.png" style="width:100%" onclick="onClick(this)" alt="An image of the shopping district" width="600" height="400">
-        <img src="images/Teo.png" style="width:100%" onclick="onClick(this)" alt="An image of NotZoyu's house on the 2nd vanilla SMP." width="600" height="400">
-
-      </div>
-
-  
-      <div class="w3-half">
-
-        <img src="/images/statue.png" style="width:100%" onclick="onClick(this)" alt="An image of a statue built by Xtreem_Piggy17 on the 2nd vanilla SMP." width="600" height="400">
-        <img src="/images/TownSquare.png" style="width:100%" onclick="onClick(this)" alt="An image of the town square on the 2nd vanilla SMP" width="600" height="400">
-      </div>
-    </div>
-
-    <div>
-      <h1 class="w3-xxxlarge w3-text-red"><b>Events</b></h1>
-      <hr style="width:50px;border:5px solid red" class="w3-round">
-  
-      <p>Here are some memories from events we did:</p>
-  
-    </div>
-
-
-    <div class="w3-row-padding">
-      <div class="w3-half">
-        <img src="images/Terraswoopforce.png" style="width:100%" onclick="onClick(this)" alt="An image of Xtreem_Piggy17, MiracleSheep, NotZoyu, Orangeboy342, and ShortPigeon in wingsuits playing the map Terra Swoop Force." width="600" height="400">
-        <img src="images/terraswoopforce3.png" style="width:100%" onclick="onClick(this)" alt="An image of ShortPigeon looking out at the controls of a drill in the map Terra Swoop Force." width="600" height="400">
-
-      </div>
-
-  
-      <div class="w3-half">
-
-        <img src="images/HauntedHouse.png" style="width:100%" onclick="onClick(this)" alt="An image of a TyphoonChicken, Xtreem_Piggy17 and MiracleSheep exploring a haunted house in the map Redmoore Mansion." width="600" height="400">
-        <img src="images/terraswoopforce2.png" style="width:100%" onclick="onClick(this)" alt="An image of Orangeboy342 and Xtreem_Piggy17 looking at the core of earth in the map Terra Swoop Force." width="600" height="400">
-      </div>
-    </div>
-
 
 
   <script>
+
+    var open = false;
+
+    function w3_trigger() {
+      console.log("called")
+      if (open == false) {
+      document.getElementById("center").style.marginLeft = "15%";
+      open = true;
+    } else {
+      document.getElementById("center").style.marginLeft = "0%";
+      open = false;
+    }
+    }
     
     // Modal Image Gallery
     function onClick(element) {
       document.getElementById("img01").src = element.src;
       document.getElementById("modal01").style.display = "block";
+     document.getElementById("modal01").style.marginTop = "80px";
+
       var captionText = document.getElementById("caption");
       captionText.innerHTML = element.alt;
+
     }
-    </script>
-      
+
+    var slideIndex = [1,1,1];
+    var slideId = ["mySlides1", "mySlides2", "mySlides3"]
+    showSlides(1, 0);
+    showSlides(1, 1);
+    showSlides(1, 2);
+
+    function plusSlides(n, no) {
+      showSlides(slideIndex[no] += n, no);
+    }
+
+    function showSlides(n, no) {
+      var i;
+      var x = document.getElementsByClassName(slideId[no]);
+      if (n > x.length) {slideIndex[no] = 1}    
+      if (n < 1) {slideIndex[no] = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex[no]-1].style.display = "block";  
+    }
+
   
-      <script>
-        // Script to open and close sidebar
-        function w3_open() {
-          document.getElementById("mySidebar").style.display = "block";
-          document.getElementById("myOverlay").style.display = "block";
-        }
-         
-        function w3_close() {
-          document.getElementById("mySidebar").style.display = "none";
-          document.getElementById("myOverlay").style.display = "none";
-        }
-        
-        // Modal Image Gallery
-        function onClick(element) {
-          document.getElementById("img01").src = element.src;
-          document.getElementById("modal01").style.display = "block";
-          var captionText = document.getElementById("caption");
-          captionText.innerHTML = element.alt;
-        }
-        </script>
+
+    </script>
+
+
 
 
 </body>
 </html>
+
