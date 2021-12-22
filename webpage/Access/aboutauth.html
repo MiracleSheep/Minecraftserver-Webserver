@@ -303,6 +303,48 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   .prev, .next,.text {font-size: 11px}
 }
 
+.custom-shape-divider-bottom-1640131651 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1640131651 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 119px;
+}
+
+.custom-shape-divider-bottom-1640131651 .shape-fill {
+    fill: #9e9e9e;
+}
+
+.custom-shape-divider-top-1640132301 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1640132301 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 119px;
+}
+
+.custom-shape-divider-top-1640132301 .shape-fill {
+    fill: #9e9e9e;
+}
+
 
 
     </style>
@@ -343,7 +385,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   </div>
 
 
-  <section class="">
+  <section style="position: relative;">
     <div class="w3-row-padding w3-padding-64 w3-container">
       <div class="w3-content">
         <div style="text-align: center;">
@@ -359,6 +401,14 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     
       </div>
     </div>
+
+
+    <div class="custom-shape-divider-bottom-1640131651">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+  </div>
+
     </section>
 
 
@@ -383,9 +433,15 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
       </section>
 
 
-<section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px;">
+<section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px;position: relative;">
 
-  <div class="slideshow-container" style="background: white;">
+  <div class="custom-shape-divider-top-1640132301">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+    </svg>
+</div>
+
+  <div class="slideshow-container" style="background: white; margin-top: 200px; margin-bottom: 200px;">
 
 
 
@@ -429,6 +485,13 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
 
   </div>
+
+  <div class="custom-shape-divider-bottom-1640131651">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+    </svg>
+</div>
+
 </section>
 
   <!-- Modal for full size images on click-->
@@ -462,9 +525,15 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     </section>
 
 
-  <section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px;">
+  <section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px; position: relative;">
 
-    <div class="slideshow-container" style="background: white;">
+    <div class="custom-shape-divider-top-1640132301">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+      </svg>
+  </div>
+
+    <div class="slideshow-container" style="background: white; margin-top: 200px; margin-bottom: 200px;">
   
   
       <div class="mySlides2 fade">
@@ -528,6 +597,13 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
       <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
   
     </div>
+
+
+    <div class="custom-shape-divider-bottom-1640131651">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+  </div>
   </section>
 
   <section class="w3-grey">
@@ -558,9 +634,15 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     </div>
   </div>
 
-    <section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px;">
+  <section class="w3-light-grey" style="width: 100%; padding-top: 70px; padding-bottom: 75px; position: relative;">
 
-      <div class="slideshow-container" style="background: white;">
+      <div class="custom-shape-divider-top-1640132301">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+    </div>
+
+      <div class="slideshow-container" style="background: white; margin-top: 200px; margin-bottom: 200px;">
     
     
         <div class="mySlides3 fade">
@@ -584,6 +666,12 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
         <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
     
       </div>
+
+      <div class="custom-shape-divider-bottom-1640131651">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+        </svg>
+    </div>
     </section>
 
     </div>
