@@ -118,7 +118,7 @@ app.get('/access', (req,res) => {
   
   if (req.session.loggedin) {
     console.log("access granted")
-		res.sendFile(__dirname+'/webpage/Access/access.html')
+		res.sendFile(__dirname+'/webpage/Access/homeauth.html')
 	} else {
 		res.sendFile(__dirname+'/webpage/Visiting/denied.html');
 	}
