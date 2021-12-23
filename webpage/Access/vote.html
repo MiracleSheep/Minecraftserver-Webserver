@@ -7,178 +7,521 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <style>
-    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-    body {font-size:16px;}
-    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-    .w3-half img:hover{opacity:1}
 
-    a{
-  display: block;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 18px;
-  font-family: sans-serif;
-  text-decoration: none;
-  color: #333;
-  border: 2px solid #333;
-  letter-spacing: 2px;
+
+      .mySlides1, .mySlides2 {display: none}  
+  
+      @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+      html, body {
+          overflow-x: hidden;
+          height: 100%;
+      }
+      body {
+          background: #fff;
+          padding: 0;
+          margin: 0;
+          font-family: 'Varela Round', sans-serif;
+      }
+  
+      img {
+          width:  100%;
+          height: 500px;
+          object-fit: scale-down;
+      }
+  
+      .header {
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 100%;
+          box-shadow: none;
+          background-color: #F44336;
+          position:fixed;
+          height: 80px!important;
+          overflow: hidden;
+          z-index: 10;
+      }
+  
+      #center {
+        transition: margin-left 0.5s;
+      }
+  
+      .main {
+          margin: 0 auto;
+          display: block;
+          height: 100%;
+          margin-top: 60px;
+          transition: 0.5s;
+      }
+      .mainInner{
+          display: table;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          transition: 0.5s;
+      }
+      .mainInner div{
+          display:table-cell;
+          vertical-align: middle;
+          font-size: 3em;
+          font-weight: bold;
+          letter-spacing: 1.25px;
+          transition: 0.5s;
+      }
+      #sidebarMenu {
+          height: 100%;
+          position: fixed;
+          left: 0;
+          width:15%;
+          margin-top: 80px;
+          transform: translateX(-100%);
+          transition: transform 0.5s ease-in-out;
+          background: #F44336;
+      }
+      .sidebarMenuInner{
+          margin:0;
+          padding:0;
+          border-top: 1px solid rgba(255, 255, 255, 0.10);
+      }
+      .sidebarMenuInner li{
+          list-style: none;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 20px;
+          cursor: pointer;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      }
+      .sidebarMenuInner li span{
+          display: block;
+          font-size: 14px;
+      }
+      .sidebarMenuInner li a{
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+          cursor: pointer;
+          text-decoration: none;
+      }
+      input[type="checkbox"]:checked ~ #sidebarMenu {
+          transform: translateX(0); 
+      }
+  
+  
+      input[type=checkbox] {
+          transition: 0.5s;
+          box-sizing: border-box;
+          display: none;
+      }
+      .sidebarIconToggle {
+          transition: 0.5s;
+          box-sizing: border-box;
+          cursor: pointer;
+          position: absolute;
+          z-index: 99;
+          height: 100%;
+          width: 100%;
+          top: 22px;
+          left: 15px;
+          height: 22px;
+          width: 22px;
+      }
+      .spinner {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background-color: #fff;
+      }
+      .horizontal {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: relative;
+          float: left;
+          margin-top: 3px;
+      }
+      .diagonal.part-1 {
+          position: relative;
+          transition: 0.5s;
+          box-sizing: border-box;
+          float: left;
+      }
+      .diagonal.part-2 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: relative;
+          float: left;
+          margin-top: 3px;
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+          transition: 0.5s;
+          box-sizing: border-box;
+          opacity: 0;
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          transform: rotate(135deg);
+          margin-top: 8px;
+          
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          transform: rotate(-135deg);
+          margin-top: -9px;
+          
+      }
+  
+      .a1{
+        display: block;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        font-family: sans-serif;
+        text-decoration: none;
+        color: #333;
+  
+        letter-spacing: 2px;
+        text-align: center;
+        position: relative;
+        transition: .35s;
+      }
+  
+      .a1 span{
+        position: relative;
+        z-index: 2;
+      }
+  
+      .a1:after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #20191b;
+        transition: .35s;
+      }
+  
+      .a1:hover{
+        color: #fff;
+      }
+  
+      .a1:hover:after{
+        width: 100%;
+      }
+  
+      /* Slideshow container */
+      .slideshow-container {
+        width: 50%;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        display:block;
+        text-align: center;
+        justify-self:center;
+      }
+  
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+  
+      .active, .dot:hover {
+        background-color: #717171;
+      }
+  
+      /* Next & previous buttons */
+      .prev, .next {
+        background-color: #F44336;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 50%;
+        user-select: none;
+  
+      }
+  
+      /* Position the "next button" to the right */
+      .next {
+        right:0;
+        border-radius: 50%;
+        transform: translateX(50px);
+      }
+  
+      /* Position the "next button" to the right */
+      .prev {
+        left:0;
+        border-radius: 50%;
+        transform: translateX(-50px);
+      }
+  
+      /* On hover, add a grey background color */
+      .prev:hover, .next:hover {
+        background-color:salmon;
+        color: black;
+      }
+  
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+  
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+  
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+  
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+      }
+
+
+      .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+        height: 600px;
+      }
+
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      .animated-button {
+  background: linear-gradient(-30deg, #0b1b3d 50%, #08142b 50%);
+  padding: 20px 40px;
+  margin: 12px;
+  display: inline-block;
+  -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+  overflow: hidden;
+  color: #d4e0f7;
+  font-size: 20px;
+  letter-spacing: 2.5px;
   text-align: center;
-  position: relative;
-  transition: all .35s;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-a span{
-  position: relative;
-  z-index: 2;
+
+
+.animated-button1 {
+  background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%);
+  padding: 20px 40px;
+  margin: 12px;
+  display: inline-block;
+  -webkit-transform: translate(0%, 0%);
+          transform: translate(0%, 0%);
+  overflow: hidden;
+  color: #f7d4d4;
+  font-size: 20px;
+  letter-spacing: 2.5px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-a:after{
-  position: absolute;
+
+
+.animated-button1:hover {
+  box-shadow: 1px 1px 25px 10px rgba(255, 17, 0, 0.4);
+  transition: all 0.5s;
+}
+
+.animated-button1:before {
   content: "";
+  position: absolute;
   top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #20191b;
-  transition: all .35s;
-}
-
-a:hover{
-  color: #fff;
-}
-
-a:hover:after{
+  left: -100%;
   width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(146, 148, 248, 0.4),
+    transparent
+  );
+  transition: all 1s;
 }
 
-    </style>
+.animated-button1:hover:before {
+  left: 100%;
+}
+
+      </style>
 
 <body>
 
-    <!-- Sidebar/menu -->
-    <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-      <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-      <div class="w3-container">
-        <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
-      </div>
-      <div class="w3-bar-block">
-        <a href="/" onclick="w3_close()" class="w3-bar-item  "><span>Home</span></a> 
-        <a href="/about" onclick="w3_close()" class="w3-bar-item  "><span>About</span></a> 
-        <a href="/history" onclick="w3_close()" class="w3-bar-item  "><span>History</span></a> 
-        <a href="/vote" onclick="w3_close()" class="w3-bar-item  "><span>Vote</span></a> 
-        <a href="/modpacks" onclick="w3_close()" class="w3-bar-item  "><span>Modpacks</span></a> 
-        <a href="/plugins" onclick="w3_close()" class="w3-bar-item  "><span>Plugins</span></a> 
-        <a href="/mods" onclick="w3_close()" class="w3-bar-item  "><span>Mods</span></a> 
-        <a href="/other" onclick="w3_close()" class="w3-bar-item  "><span>Other creations</span></a> 
+  <div id="topbar" class="header" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <h1 style="text-align: center; color: white; vertical-align: middle; font-family: 'Varela Round', sans-serif;">MiracleSheep's Server</h1></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="w3_trigger()">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
   
   
-      </div>
-    </nav>
+  
+    <div id="sidebarMenu">
+      <ul class="sidebarMenuInner">
+        <li>MiracleSheep Server <span style="color: rgba(255, 255, 255, 0.50);">By John Khalife</span></li>
+      <li><a href="/" class="a1"><span>Home</span></a></li>
+    <li><a href="/about" class="a1"><span>About</span></a> </li>
+    <li><a href="/history" class="a1"><span>History</span></a></li>
+    <li><a href="/vote" class="a1"><span>Vote</span></a></li>
+    <li><a href="/modpacks" class="a1"><span>Modpacks</span></a></li>
+    <li><a href="/plugins" class="a1"><span>Plugins</span></a></li>
+    <li><a href="/mods" class="a1"><span>Mods</span></a></li>
+    <li><a href="/other" class="a1"><span>Other Creations</span></a></li>
+      </ul>
+    </div>
 
-  <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>MiracleSheep server</span>
-</header>
+    <div id='center' class="center" style="transition: margin-left 0.5s ease-in-out;">
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+        
+      
+        <h1 class="w3-xxxlarge w3-text-red w3-center" style="margin-top: 100px;"><b>What is voting?</b></h1>
+        <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+        <h5 class="w3-center w3-padding-32 w3-content">This voting feature allows you to choose what world you want to run on the server on a daily basis. The server tallies the votes at 1:00 every day. Members can only vote once per day. The specific SMPs running on the server will gradually change, however the world numbers you vote for will have the same kind of SMPs: one for vanilla, one for modded, and one for events. </h5>
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
+   
+
+
+        <div class="row">
+          <div class="column" style="background-color:#bbb;">
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>Available Worlds</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+              <table class="w3-center w3-ul w3-light-grey" style="width: 75%; border: none; text-align: center; margin-left: auto; margin-right: auto;">
+                <tr>
+                  <th class="w3-red w3-xlarge w3-padding-32">Name</th>
+                  <th class="w3-red w3-xlarge w3-padding-32">Description</th>
+                </tr>
+                <tr>
+                  <td class="w3-padding-16">Data (Vanilla)</td>
+                  <td class="w3-padding-16">This container runs the current vanilla SMP. Vanilla means normal minecraft without modifications.</td>
+                  
+                </tr>
+                <tr>
+                  <td class="w3-padding-16">Data1 (Modded)</td>
+                  <td class="w3-padding-16">This container runs the current modded SMP. Modded means minecraft with mods.</td>
+                
+                </tr>
+                <tr>
+                  <td class="w3-padding-16"> Data2 (Events)</td>
+                  <td class="w3-padding-16">This container runs events and is used for testing. Sometimes it might not be running anything. Check the discord server to see if there is an event running.</td>
+                  
+                </tr>
+      
+              </table>
+          </div>
+          <div class="column" style="background-color:#bbb;">
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>Vote Here</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+          <div class="w3-center">
+            <form action="/data/?vote=1" method="POST" class="w3-center">
+              <input type="submit" name="Vanilla" value="vanilla" class="animated-button1">
+            </form>
+    
+            <form action="/data/?vote=2" method="POST" class="w3-center">
+              <input type="submit" name="Modded" value="modded" class="animated-button1">
+            </form>
+    
+            <form action="/data/?vote=3" method="POST" class="w3-center">
+              <input type="submit" name="Event" value="event" class=" animated-button1 ">
+            </form>
+          </div>
+          </div>
+        </div>
+
+   </div>
+
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="showcase">
-    <div>
-    <h1 class="w3-jumbo"><b>MiracleSheep's server</b></h1>
-    </div>
-  </div>
-  <img src="/images/sheep.png" style="float: right;">
-  <div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>What is voting?</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>This voting feature allows you to choose what world you want to run on the server. </p>
-    <p>The server tallies the votes at 1:00 every day. </p>
-    <p>Members can only vote once per day. </p>
-  </div>
-
-    <!-- Packages / Pricing Tables -->
-    <div style="float:left">
-    <div style="margin-top:40px ">
-      <h1 class="w3-xxxlarge w3-text-red"><b>Available Worlds</b></h1>
-      <hr style="width:50px;border:5px solid red" class="w3-round">
-    </div>
   
-          
-      <div class="w3-half">
-        <table class="w3-ul w3-light-grey w3-center">
-          <tr>
-            <th class="w3-red w3-xlarge w3-padding-32">Name</th>
-            <th class="w3-red w3-xlarge w3-padding-32">Description</th>
-          </tr>
-          <tr>
-            <td class="w3-padding-16">Data (Vanilla)</td>
-            <td class="w3-padding-16">This container runs the current vanilla SMP.</td>
-            
-          </tr>
-          <tr>
-            <td class="w3-padding-16">Data (Modded)</td>
-            <td class="w3-padding-16">This container runs the current modded SMP.</td>
-          
-          </tr>
-          <tr>
-            <td class="w3-padding-16"> Data2 (Events)</td>
-            <td class="w3-padding-16">This container runs events and is used for testing.</td>
-            
-          </tr>
 
-        </table>
-      </div>
+  <script>
 
-        <div style="float:right; width:100%">
-        <div style="margin-top:40px">
-          <h1 class="w3-xxxlarge w3-text-red"><b>Vote Here:</b></h1>
-          <hr style="width:50px;border:5px solid red" class="w3-round">
-        </div>
-        <form action="/data/?vote=1" method="POST">
-          <input type="submit" name="Vanilla" value="vanilla" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
-        </form>
+    var open = false;
 
-        <form action="/data/?vote=2" method="POST">
-          <input type="submit" name="Modded" value="modded" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
-        </form>
+    function w3_trigger() {
+      console.log("called")
+      if (open == false) {
+      document.getElementById("center").style.marginLeft = "15%";
+      open = true;
+    } else {
+      document.getElementById("center").style.marginLeft = "0%";
+      open = false;
+    }
+    }
+    
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+     document.getElementById("modal01").style.marginTop = "80px";
 
-        <form action="/data/?vote=3" method="POST">
-          <input type="submit" name="Event" value="event" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">
-        </form>
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
 
-        <!-- <a href="/data/?vote=1" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Vanilla</a>
-        <a href="/data1/?vote=2" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Modded</a>
-        <a href="/data2/?vote=3" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Event</a> -->
-      </div>
+    }
 
-      <script>
-        // Script to open and close sidebar
-        function w3_open() {
-          document.getElementById("mySidebar").style.display = "block";
-          document.getElementById("myOverlay").style.display = "block";
-        }
-         
-        function w3_close() {
-          document.getElementById("mySidebar").style.display = "none";
-          document.getElementById("myOverlay").style.display = "none";
-        }
-        
-        // Modal Image Gallery
-        function onClick(element) {
-          document.getElementById("img01").src = element.src;
-          document.getElementById("modal01").style.display = "block";
-          var captionText = document.getElementById("caption");
-          captionText.innerHTML = element.alt;
-        }
-        </script>
+    var slideIndex = [1,1,1];
+    var slideId = ["mySlides1", "mySlides2", "mySlides3"]
+    showSlides(1, 0);
+    showSlides(1, 1);
+    showSlides(1, 2);
 
+    function plusSlides(n, no) {
+      showSlides(slideIndex[no] += n, no);
+    }
+
+    function showSlides(n, no) {
+      var i;
+      var x = document.getElementsByClassName(slideId[no]);
+      if (n > x.length) {slideIndex[no] = 1}    
+      if (n < 1) {slideIndex[no] = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex[no]-1].style.display = "block";  
+    }
+
+  
+
+    </script>
 </body>
 </html>
