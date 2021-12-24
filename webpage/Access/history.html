@@ -6,200 +6,664 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-    body {font-size:16px;}
-    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-    .w3-half img:hover{opacity:1}
 
-    a{
-  display: block;
-  width: 200px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 18px;
-  font-family: sans-serif;
-  text-decoration: none;
-  color: #333;
-  border: 2px solid #333;
-  letter-spacing: 2px;
-  text-align: center;
-  position: relative;
-  transition: all .35s;
+
+      .mySlides1, .mySlides2 {display: none} 
+      *{ margin: 0; padding: 0; } 
+  
+      @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+      html, body {
+          overflow-x: hidden;
+          height: 100%;
+      }
+      body {
+          background: #fff;
+          padding: 0;
+          margin: 0;
+          font-family: 'Varela Round', sans-serif;
+      }
+  
+      img {
+          width:  100%;
+          height: 500px;
+          object-fit: scale-down;
+      }
+  
+      .header {
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 100%;
+          box-shadow: none;
+          background-color: #F44336;
+          position:fixed;
+          height: 80px!important;
+          overflow: hidden;
+          z-index: 10;
+      }
+  
+      #center {
+        transition: margin-left 0.5s;
+      }
+  
+      .main {
+          margin: 0 auto;
+          display: block;
+          height: 100%;
+          margin-top: 60px;
+          transition: 0.5s;
+      }
+      .mainInner{
+          display: table;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          transition: 0.5s;
+      }
+      .mainInner div{
+          display:table-cell;
+          vertical-align: middle;
+          font-size: 3em;
+          font-weight: bold;
+          letter-spacing: 1.25px;
+          transition: 0.5s;
+      }
+      #sidebarMenu {
+          height: 100%;
+          position: fixed;
+          left: 0;
+          width:15%;
+          margin-top: 80px;
+          transform: translateX(-100%);
+          transition: transform 0.5s ease-in-out;
+          background: #F44336;
+      }
+      .sidebarMenuInner{
+          margin:0;
+          padding:0;
+          border-top: 1px solid rgba(255, 255, 255, 0.10);
+      }
+      .sidebarMenuInner li{
+          list-style: none;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 20px;
+          cursor: pointer;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      }
+      .sidebarMenuInner li span{
+          display: block;
+          font-size: 14px;
+      }
+      .sidebarMenuInner li a{
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+          cursor: pointer;
+          text-decoration: none;
+      }
+      input[type="checkbox"]:checked ~ #sidebarMenu {
+          transform: translateX(0); 
+      }
+  
+  
+      input[type=checkbox] {
+          transition: 0.5s;
+          box-sizing: border-box;
+          display: none;
+      }
+      .sidebarIconToggle {
+          transition: 0.5s;
+          box-sizing: border-box;
+          cursor: pointer;
+          position: absolute;
+          z-index: 99;
+          height: 100%;
+          width: 100%;
+          top: 22px;
+          left: 15px;
+          height: 22px;
+          width: 22px;
+      }
+      .spinner {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background-color: #fff;
+      }
+      .horizontal {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: relative;
+          float: left;
+          margin-top: 3px;
+      }
+      .diagonal.part-1 {
+          position: relative;
+          transition: 0.5s;
+          box-sizing: border-box;
+          float: left;
+      }
+      .diagonal.part-2 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: relative;
+          float: left;
+          margin-top: 3px;
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+          transition: 0.5s;
+          box-sizing: border-box;
+          opacity: 0;
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          transform: rotate(135deg);
+          margin-top: 8px;
+          
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          transform: rotate(-135deg);
+          margin-top: -9px;
+          
+      }
+  
+      .a1{
+        display: block;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        font-family: sans-serif;
+        text-decoration: none;
+        color: #333;
+  
+        letter-spacing: 2px;
+        text-align: center;
+        position: relative;
+        transition: .35s;
+      }
+  
+      .a1 span{
+        position: relative;
+        z-index: 2;
+      }
+  
+      .a1:after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #20191b;
+        transition: .35s;
+      }
+  
+      .a1:hover{
+        color: #fff;
+      }
+  
+      .a1:hover:after{
+        width: 100%;
+      }
+  
+      /* Slideshow container */
+      .slideshow-container {
+        width: 50%;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        display:block;
+        text-align: center;
+        justify-self:center;
+      }
+  
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+  
+      .active, .dot:hover {
+        background-color: #717171;
+      }
+  
+      /* Next & previous buttons */
+      .prev, .next {
+        background-color: #F44336;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 50%;
+        user-select: none;
+  
+      }
+  
+      /* Position the "next button" to the right */
+      .next {
+        right:0;
+        border-radius: 50%;
+        transform: translateX(50px);
+      }
+  
+      /* Position the "next button" to the right */
+      .prev {
+        left:0;
+        border-radius: 50%;
+        transform: translateX(-50px);
+      }
+  
+      /* On hover, add a grey background color */
+      .prev:hover, .next:hover {
+        background-color:salmon;
+        color: black;
+      }
+  
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+  
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+  
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+  
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+      }
+
+.custom-shape-divider-top-1640291553 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
 
-a span{
-  position: relative;
-  z-index: 2;
+.custom-shape-divider-top-1640291553 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 90px;
 }
 
-a:after{
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #20191b;
-  transition: all .35s;
+.custom-shape-divider-top-1640291553 .shape-fill {
+    fill: #9E9E9E;
 }
 
-a:hover{
-  color: #fff;
+.custom-shape-divider-bottom-1640292327 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
 }
 
-a:hover:after{
-  width: 100%;
+.custom-shape-divider-bottom-1640292327 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 90px;
 }
-    </style>
+
+.custom-shape-divider-bottom-1640292327 .shape-fill {
+    fill: #9E9E9E;
+}
+
+
+.btn {
+  background-color: #013809;
+  border: none;
+  color: white;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #00610f;
+}
+
+      </style>
 
 <body>
 
-  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-    <div class="w3-container">
-      <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
+  <div id="topbar" class="header" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <h1 style="text-align: center; color: white; vertical-align: middle; font-family: 'Varela Round', sans-serif;">MiracleSheep's Server</h1></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="w3_trigger()">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
+  
+  
+  
+    <div id="sidebarMenu">
+      <ul class="sidebarMenuInner">
+        <li>MiracleSheep Server <span style="color: rgba(255, 255, 255, 0.50);">By John Khalife</span></li>
+      <li><a href="/" class="a1"><span>Home</span></a></li>
+    <li><a href="/about" class="a1"><span>About</span></a> </li>
+    <li><a href="/history" class="a1"><span>History</span></a></li>
+    <li><a href="/vote" class="a1"><span>Vote</span></a></li>
+    <li><a href="/modpacks" class="a1"><span>Modpacks</span></a></li>
+    <li><a href="/plugins" class="a1"><span>Plugins</span></a></li>
+    <li><a href="/mods" class="a1"><span>Mods</span></a></li>
+    <li><a href="/other" class="a1"><span>Other Creations</span></a></li>
+      </ul>
     </div>
-    <div class="w3-bar-block">
-      <a href="/" onclick="w3_close()" class="w3-bar-item "><span>Home</span></a> 
-      <a href="/about" onclick="w3_close()" class="w3-bar-item "><span>About</span></a> 
-      <a href="/history" onclick="w3_close()" class="w3-bar-item "><span>History</span></a> 
-      <a href="/vote" onclick="w3_close()" class="w3-bar-item "><span>Vote</span></a> 
-      <a href="/modpacks" onclick="w3_close()" class="w3-bar-item "><span>Modpacks</span></a> 
-      <a href="/plugins" onclick="w3_close()" class="w3-bar-item "><span>Plugins</span></a> 
-      <a href="/mods" onclick="w3_close()" class="w3-bar-item "><span>Mods</span></a> 
-      <a href="/other" onclick="w3_close()" class="w3-bar-item "><span>Other creations</span></a> 
 
-
-    </div>
-  </nav>
-
-  <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>MiracleSheep server</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="showcase">
-    <div>
-    <h1 class="w3-jumbo"><b>MiracleSheep's server</b></h1>
-    </div>
-  </div>
-  <img src="/images/sheep.png" style="float: right; margin: 40px;">
+  
+    <div id='center' class="center" style=" margin-top: 100px; transition: margin-left 0.5s ease-in-out;">
+      <section style="position: relative; margin: 0%; padding: 0%;"> 
   <div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>The History of the MiracleSheep Server</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>The MiracleSheep server has hosted many different SMPs as well as adventure maps and events. </p>
-    <p>The amount of events and adventure maps played on the server are to numerous to count, so this history page will document all of the SMPs on the server. </p>
-</div>
-
-
-  <div>
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>The First Vanilla SMP</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>The first vanilla world was the first SMP on the MiracleSheep server. It included around 11 people.</p>
-    <p>The SMP spanned from versions 1.14 to 1.15.</p>
-    <p>Everyone built relatively small houses close to one another, and had an underground town hall for meetings and gear. </p>
-    <p>One of the largest projects on the SMP was a guardian farm, to gain more exp.</p>
-    <p>There are not many photos from this era. Most of them are buried in the history of the MiracleSheep discord server.</p>
-    <p>Once everyone was bored with the vanilla, many mods were added to in order to make it interesting.</p>
-    <p>When the SMP was finished, the modpack was lost and the world was corrupted.</p>
-    <img src="/images/Dragon_and_Elytra_Screenshot.png" >
-  </div>
-
-
-  <div>
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>The First Modded SMP</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>The first modded world lasted for a short time on the MiracleSheep server. It included around 5 people.</p>
-    <p>The SMP was in forge version 1.12.2.</p>
-    <p>It included a mix of tech and magic mods with no clear objective. </p>
-    <p>Everyone's houses were extremely far apart, and everyone was working with different mods.</p>
-    <p>There are not many photos from this era, because the SMP ended early as everyone got bored with it.</p>
-    <p>The modpack was lost and the world was corrupted.</p>
-
-  </div>
-
-
-  <div>
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>The Race to the Moon SMP</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>This was one of the best modded SMPs on the server. It included around 7 people.</p>
-    <p>The SMP was in forge version 1.12.2.</p>
-    <p>It included a mostly tech mods, with a clear objective of racing to the moon. </p>
-    <p>Everyone was split into two teams. Whoever got to the moon first would win.</p>
-    <p>There were two bases for each team, although after the space race they would all move to the mountains.</p>
-    <p>MiracleSheep, Xtreem_Piggy17, and Crazyfr0g_ won the space race to the moon.</p>
-    <p>Afterwards, everyone worked together to get to the other planets and a giant space station was constructed but not entirely finished.</p>
-    <p>The world was corrupted, but the modpack still exists.</p>
-    <p>There may be a second race to the moon SMP.</p>
-    <img src="/images/blastoff.png" style="width:100%" onclick="onClick(this)" alt="MiracleSheep, Xtreem_Piggy17 and Crazyfr0g_ blasting off to the moon and winning the space race in the Race to the Moon SMP (inspired by the Race to the Moon let's play)." width="600" height="400">
-  </div>
-
-
-  <div>
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>The Second Modded SMP</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>This SMP included around 7 people and was heavily magic themed.</p>
-    <p>The SMP was in forge version 1.12.2.</p>
-    <p>Everyone built their houses far from eachother, and would come together to defeat bosses.</p>
-    <p>The main goal of this SMP was to explore all five dimensions the mods added.</p>
-    <p>The modpack is avalable for download, and the world is still on the server.</p>
-    <p>The history of this SMP is well documented.</p>
-    <img src="/images/moddedhouse.png" style="width:100%" onclick="onClick(this)" alt="An image of MiracleSheep's house on the second Modded SMP" width="600" height="400">
-  </div>
-
-
-  <h1 class="w3-xxxlarge w3-text-red"><b>The Second Vanilla SMP (still operationnal)</b></h1>
-  <hr style="width:50px;border:5px solid red" class="w3-round">
-
-  <p>The second vanilla world is the second SMP on the MiracleSheep server. It includes around 10 people.</p>
-  <p>The houses built in this SMP are close, but more scattered than the last SMP. They are also many times larger. </p>
-  <p>This SMP was inspired by the hermitcraft series and spanned versions 1.15 to 1.16. It contains plugins as well as a shopping district with diamonds as currency.</p>
-  <p>There are a variety of massive projects on this SMP, many of which include farms.</p>
-  <p>This is one of the most well recorded eras of the server. There are many photos from the server on discord.</p>
-  <p>This SMP is still alive today, and we will move on to the third SMP when the second caves and cliffs update comes out around christmas.</p>
-  <img src="/images/TownSquare.png" style="width:100%" onclick="onClick(this)" alt="An image of the town square on the 2nd vanilla SMP" width="600" height="400">
+    <h1 class="w3-center w3-xxxlarge w3-text-red"><b>The History of the MiracleSheep Server</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="margin-bottom: 200px;">The MiracleSheep server has hosted many different SMPs as well as adventure maps and events. This history page is meant to document all of the SMPs we have had on the server, as well as provide world downloads for those that were saved. Enjoy!</h5>
 </div>
 
 
 
-  <script>
-    // Script to open and close sidebar
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-    }
-     
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-    }
+</section>
+
+<section style="position: relative;">
+<div class="custom-shape-divider-bottom-1640292327" style="margin-top: 300px; margin-bottom: 0%;">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div></section>
+
+<section style="position: relative; background-color: #9E9E9E;">
+
+
+  
+  <div>
+
+    <h1 class="w3-center w3-xxxlarge w3-text-red" style="padding-top:100px;"><b>The First Vanilla SMP</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content">
+      The first vanilla world was the first SMP on the MiracleSheep server. It included around 11 people.
+      The SMP spanned from versions 1.14 to 1.15.
+      Everyone built relatively small houses close to one another, and had an underground town hall for meetings and gear.
+      One of the largest projects on the SMP was a guardian farm, to gain more exp.
+      There are not many photos from this era. Most of them are buried in the history of the MiracleSheep discord server.
+      Once everyone was bored with the vanilla, many mods were added to in order to make it interesting.
+      When the SMP was finished, the modpack was lost and the world was corrupted.
+    </h5>
+    <img src="/images/Dragon_and_Elytra_Screenshot.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; padding-bottom: 100px;" >
+  </div>
+
+
+
+</section>
+
+<section style="position: relative;">  <div class="custom-shape-divider-top-1640291553">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div></section>
+
+<section style="position: relative;">
+  <div>
+    <h1 class="w3-center w3-xxxlarge w3-text-red" style="margin-top: 150px;"><b>The First Modded SMP</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="margin-bottom: 200px;">
+      The first modded world lasted for a short time on the MiracleSheep server. It included around 5 people.
+      The SMP was in forge version 1.12.2.
+      It included a mix of tech and magic mods with no clear objective. 
+      Everyone's houses were extremely far apart, and everyone was working with different mods.
+      There are not many photos from this era, because the SMP ended early as everyone got bored with it.
+      The modpack was lost and the world was corrupted.
+    </h5>
+  </div>
+</section>
+
+
+
+
+
+<section style="position: relative; margin-bottom: 0%; background-color: #9E9E9E;">  <div class="custom-shape-divider-bottom-1640292327">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div>
+</section>
+<section style="position: relative; background-color: #9E9E9E; margin-top: 0%;">
+  <div>
+    <h1 class="w3-center w3-xxxlarge w3-text-red" style="padding-top:100px;"><b>The Race to the Moon SMP</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content">
+      This was one of the best modded SMPs on the server. It included around 7 people.
+      The SMP was in forge version 1.12.2.
+      It included a mostly tech mods, with a clear objective of racing to the moon.
+      Everyone was split into two teams. Whoever got to the moon first would win.
+      There were two bases for each team, although after the space race they would all move to the mountains.
+      MiracleSheep, Xtreem_Piggy17, and Crazyfr0g_ won the space race to the moon.
+      Afterwards, everyone worked together to get to the other planets and a giant space station was constructed but not entirely finished.
+      The world was corrupted, but the modpack still exists.
+      There may be a second race to the moon SMP in the future.
+    </h5>
+    <img src="/images/blastoff.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; padding-bottom: 100px;">
+  </div>
+
+
+
+</section>
+
+<section style="position: relative;">  <div class="custom-shape-divider-top-1640291553">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div></section>
+
+
+<section style="position: relative;">
+
+  <div>
+
+    <h1 class="w3-center w3-xxxlarge w3-text-red" style="margin-top: 150px;"><b>The Magic SMP</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content">
+
+      This SMP included around 7 people and was heavily magic themed.
+      The SMP was in forge version 1.12.2.
+      Everyone built their houses far from eachother, and would come together to defeat bosses.
+      The main goal of this SMP was to explore all five dimensions the mods added.
+      The modpack and world are avalable for download
+      The history of this SMP is well documented.
+      It ended because of issues with the server type Mohist.
+      The modpack and world are available for download.
+    </h5>
+
+    <img src="/images/moddedhouse.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; margin-bottom: 50px;">
+
+    <button style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 250px;" class="btn w3-center"><i class="fa fa-download"></i> Download</button>
+
+  </div>
+</section>
+
+<section>
+</section>
+
+<section style="position: relative; margin-bottom: 0%; background-color: #9E9E9E; display: block;">  
+  <div class="custom-shape-divider-bottom-1640292327">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div>
+</section>
+<section style="position: relative; background-color: #9E9E9E; margin-top: 0%;">
+  <div>
+    <h1 class="w3-center w3-xxxlarge w3-text-red" style="padding-top:100px;"><b>The Second Vanilla SMP</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content">
+      The second vanilla world is the second SMP on the MiracleSheep server. It includes around 10 people.
+      The houses built in this SMP are close, but more scattered than the last SMP. They are also many times larger.
+      This SMP was inspired by the hermitcraft series and spanned versions 1.15 to 1.16. It contains plugins as well as a shopping district with diamonds as currency.
+      There are a variety of massive projects on this SMP, many of which include farms.
+      This is one of the most well recorded eras of the server. There are many photos from the server on discord.
+      The world is available for download, however it has been split into three directories because of the multiverse plugin.
+    </h5>
+    <img src="/images/TownSquare.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; padding-bottom: 50px; border:1px solid transparent">
+    <button style="display: block; margin-left: auto; margin-right: auto;" class="btn w3-center"><i class="fa fa-download"></i> Download</button>
+    <div style="padding: 125px;"></div>
+  </div>
+
+
+
+</section>
+
+<section style="position: relative;">  <div class="custom-shape-divider-top-1640291553">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div></section>
+
+
+<section style="position: relative;">
+
+  <div>
+
+    <h1 class="w3-center w3-xxxlarge w3-text-red" style="margin-top: 150px;"><b>The Avatar SMP (Operational)</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="margin-bottom: 150px;">
+      This SMP includes around 8 people and is themed on the Avatar series.
+      Each player is allowed one element to bend upon joining and can start their own nation.
+      The SMP is in forge version 1.12.2.
+    </h5>
+
+  </div>
+</section>
+
+<section style="position: relative; margin-bottom: 0%; background-color: #9E9E9E; display: block;">  
+  <div class="custom-shape-divider-bottom-1640292327">
+  <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+      <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+      <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+  </svg>
+</div>
+</section>
+<section style="position: relative; background-color: #9E9E9E; margin-top: 0%;">
+  <div>
+    <h1 class="w3-center w3-xxxlarge w3-text-red" style="padding-top:100px;"><b>The Third Vanilla SMP (Operational)</b></h1>
+    <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+
+    <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content">
+      The third vanilla SMP is the most recent SMP added to the server.
+      It is in version 1.18 and will likely continue past 1.19.
+      It operates in much the same way as Hermitcraft, and the seed contains a massive mycelium island near the initial spawn.
+    </h5>
+  </div>
+</section>
+      </div>
+
+  
+
+
+      <script>
+
+        var open = false;
     
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
-    }
-    </script>
+        function w3_trigger() {
+          console.log("called")
+          if (open == false) {
+          document.getElementById("center").style.marginLeft = "15%";
+          open = true;
+        } else {
+          document.getElementById("center").style.marginLeft = "0%";
+          open = false;
+        }
+        }
+        
+        // Modal Image Gallery
+        function onClick(element) {
+          document.getElementById("img01").src = element.src;
+          document.getElementById("modal01").style.display = "block";
+         document.getElementById("modal01").style.marginTop = "80px";
+    
+          var captionText = document.getElementById("caption");
+          captionText.innerHTML = element.alt;
+    
+        }
+    
+        var slideIndex = [1,1,1];
+        var slideId = ["mySlides1", "mySlides2", "mySlides3"]
+        showSlides(1, 0);
+        showSlides(1, 1);
+        showSlides(1, 2);
+    
+        function plusSlides(n, no) {
+          showSlides(slideIndex[no] += n, no);
+        }
+    
+        function showSlides(n, no) {
+          var i;
+          var x = document.getElementsByClassName(slideId[no]);
+          if (n > x.length) {slideIndex[no] = 1}    
+          if (n < 1) {slideIndex[no] = x.length}
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          x[slideIndex[no]-1].style.display = "block";  
+        }
+    
+      
+    
+        </script>
 
 
 
