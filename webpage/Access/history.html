@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <style>
 
 
@@ -346,19 +347,133 @@
 }
 
 
+
+/* Button */
 .btn {
-  background-color: #013809;
-  border: none;
-  color: white;
-  padding: 12px 30px;
+  background: transparent;
+  width: 200px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
   cursor: pointer;
-  font-size: 20px;
-  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
 }
 
-.btn:hover {
-  background-color: #00610f;
+/* In Progress Button */
+.btn-progress {
+  width: 500px;
+  color: transparent;
 }
+
+.btn-fill:after {
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+}
+
+/* Button Complete */
+.btn-complete {
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
+/* Animation */
+@keyframes fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Button */
+.btn2 {
+  background: transparent;
+  width: 200px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+}
+
+/* In Progress Button */
+.btn2-progress {
+  width: 500px;
+  color: transparent;
+}
+
+.btn2-fill:after {
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+}
+
+/* Button Complete */
+.btn2-complete {
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn2-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
 
       </style>
 
@@ -524,7 +639,7 @@
 
     <img src="/images/moddedhouse.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; margin-bottom: 50px;">
 
-    <button style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 250px;" class="btn w3-center"><i class="fa fa-download"></i> Download</button>
+    <a href="#" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 250px;" class="btn w3-center"><i class="fa fa-download"></i> Download</a>
 
   </div>
 </section>
@@ -555,7 +670,7 @@
       The world is available for download, however it has been split into three directories because of the multiverse plugin.
     </h5>
     <img src="/images/TownSquare.png" style="display: block; margin-left: auto; margin-right: auto; width: 50%; padding-bottom: 50px; border:1px solid transparent">
-    <button style="display: block; margin-left: auto; margin-right: auto;" class="btn w3-center"><i class="fa fa-download"></i> Download</button>
+    <a href="#" style="display: block; margin-left: auto; margin-right: auto;" class="btn2 w3-center"><i class="fa fa-download"></i> Download</a>
     <div style="padding: 125px;"></div>
   </div>
 
@@ -628,40 +743,64 @@
           open = false;
         }
         }
+
+       $(function() {
+        var btn = $(".btn");
         
-        // Modal Image Gallery
-        function onClick(element) {
-          document.getElementById("img01").src = element.src;
-          document.getElementById("modal01").style.display = "block";
-         document.getElementById("modal01").style.marginTop = "80px";
-    
-          var captionText = document.getElementById("caption");
-          captionText.innerHTML = element.alt;
-    
-        }
-    
-        var slideIndex = [1,1,1];
-        var slideId = ["mySlides1", "mySlides2", "mySlides3"]
-        showSlides(1, 0);
-        showSlides(1, 1);
-        showSlides(1, 2);
-    
-        function plusSlides(n, no) {
-          showSlides(slideIndex[no] += n, no);
-        }
-    
-        function showSlides(n, no) {
-          var i;
-          var x = document.getElementsByClassName(slideId[no]);
-          if (n > x.length) {slideIndex[no] = 1}    
-          if (n < 1) {slideIndex[no] = x.length}
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-          }
-          x[slideIndex[no]-1].style.display = "block";  
-        }
-    
-      
+        btn.on("click", function() {
+          
+          $(this).addClass('btn-progress');
+          setTimeout(function() {
+            btn.addClass('btn-fill')
+          }, 500);
+          
+          setTimeout(function() {
+            btn.removeClass('btn-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn-progress')
+          }, 6000);
+        
+        });
+      })
+
+      $(function() {
+        var btn = $(".btn2");
+        
+        btn.on("click", function() {
+          
+          $(this).addClass('btn2-progress');
+          setTimeout(function() {
+            btn.addClass('btn2-fill')
+          }, 500);
+          
+          setTimeout(function() {
+            btn.removeClass('btn2-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn2-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn2-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn2-progress')
+          }, 6000);
+        
+        });
+      })
     
         </script>
 
