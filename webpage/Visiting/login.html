@@ -7,81 +7,521 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
 		<style>
-		body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-		body {font-size:16px;}
-		.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-		.w3-half img:hover{opacity:1}
-		</style>
+
+			.mySlides1, .mySlides2 {display: none}  
+			
+			@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+			html, body {
+				overflow-x: hidden;
+				height: 100%;
+			}
+			body {
+				background: #fff;
+				padding: 0;
+				margin: 0;
+				font-family: 'Varela Round', sans-serif;
+			}
+			
+			img {
+				width:  100%;
+				height: 500px;
+				object-fit: scale-down;
+			}
+			
+			.header {
+				display: block;
+				margin: 0 auto;
+				width: 100%;
+				max-width: 100%;
+				box-shadow: none;
+				background-color: #F44336;
+				position:fixed;
+				height: 80px!important;
+				overflow: hidden;
+				z-index: 10;
+			}
+			
+			#center {
+			  transition: margin-left 0.5s;
+			}
+			
+			.main {
+				margin: 0 auto;
+				display: block;
+				height: 100%;
+				margin-top: 60px;
+				transition: 0.5s;
+			}
+			.mainInner{
+				display: table;
+				height: 100%;
+				width: 100%;
+				text-align: center;
+				transition: 0.5s;
+			}
+			.mainInner div{
+				display:table-cell;
+				vertical-align: middle;
+				font-size: 3em;
+				font-weight: bold;
+				letter-spacing: 1.25px;
+				transition: 0.5s;
+			}
+			#sidebarMenu {
+				height: 100%;
+				position: fixed;
+				left: 0;
+				width:15%;
+				margin-top: 80px;
+				transform: translateX(-100%);
+				transition: transform 0.5s ease-in-out;
+				background: #F44336;
+			}
+			.sidebarMenuInner{
+				margin:0;
+				padding:0;
+				border-top: 1px solid rgba(255, 255, 255, 0.10);
+			}
+			.sidebarMenuInner li{
+				list-style: none;
+				color: #fff;
+				text-transform: uppercase;
+				font-weight: bold;
+				padding: 20px;
+				cursor: pointer;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+			}
+			.sidebarMenuInner li span{
+				display: block;
+				font-size: 14px;
+			}
+			.sidebarMenuInner li a{
+				color: #fff;
+				text-transform: uppercase;
+				font-weight: bold;
+				cursor: pointer;
+				text-decoration: none;
+			}
+			input[type="checkbox"]:checked ~ #sidebarMenu {
+				transform: translateX(0); 
+			}
+			
+			
+			input[type=checkbox] {
+				transition: 0.5s;
+				box-sizing: border-box;
+				display: none;
+			}
+			.sidebarIconToggle {
+				transition: 0.5s;
+				box-sizing: border-box;
+				cursor: pointer;
+				position: absolute;
+				z-index: 99;
+				height: 100%;
+				width: 100%;
+				top: 22px;
+				left: 15px;
+				height: 22px;
+				width: 22px;
+			}
+			.spinner {
+				transition: 0.5s;
+				box-sizing: border-box;
+				position: absolute;
+				height: 3px;
+				width: 100%;
+				background-color: #fff;
+			}
+			.horizontal {
+				transition: 0.5s;
+				box-sizing: border-box;
+				position: relative;
+				float: left;
+				margin-top: 3px;
+			}
+			.diagonal.part-1 {
+				position: relative;
+				transition: 0.5s;
+				box-sizing: border-box;
+				float: left;
+			}
+			.diagonal.part-2 {
+				transition: 0.5s;
+				box-sizing: border-box;
+				position: relative;
+				float: left;
+				margin-top: 3px;
+			}
+			input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+				transition: 0.5s;
+				box-sizing: border-box;
+				opacity: 0;
+			}
+			input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+				transition: 0.5s;
+				box-sizing: border-box;
+				transform: rotate(135deg);
+				margin-top: 8px;
+				
+			}
+			input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+				transition: 0.5s;
+				box-sizing: border-box;
+				transform: rotate(-135deg);
+				margin-top: -9px;
+				
+			}
+			
+			.a1{
+			  display: block;
+			  width: 200px;
+			  height: 40px;
+			  line-height: 40px;
+			  font-size: 18px;
+			  font-family: sans-serif;
+			  text-decoration: none;
+			  color: #333;
+			
+			  letter-spacing: 2px;
+			  text-align: center;
+			  position: relative;
+			  transition: .35s;
+			}
+			
+			.a1 span{
+			  position: relative;
+			  z-index: 2;
+			}
+			
+			.a1:after{
+			  position: absolute;
+			  content: "";
+			  top: 0;
+			  left: 0;
+			  width: 0;
+			  height: 100%;
+			  background: #20191b;
+			  transition: .35s;
+			}
+			
+			.a1:hover{
+			  color: #fff;
+			}
+			
+			.a1:hover:after{
+			  width: 100%;
+			}
+			
+			/* Slideshow container */
+			.slideshow-container {
+			  width: 50%;
+			  position: relative;
+			  margin-left: auto;
+			  margin-right: auto;
+			  display:block;
+			  text-align: center;
+			  justify-self:center;
+			}
+			
+			/* The dots/bullets/indicators */
+			.dot {
+			  cursor: pointer;
+			  height: 15px;
+			  width: 15px;
+			  margin: 0 2px;
+			  background-color: #bbb;
+			  border-radius: 50%;
+			  display: inline-block;
+			  transition: background-color 0.6s ease;
+			}
+			
+			.active, .dot:hover {
+			  background-color: #717171;
+			}
+			
+			/* Next & previous buttons */
+			.prev, .next {
+			  background-color: #F44336;
+			  cursor: pointer;
+			  position: absolute;
+			  top: 50%;
+			  width: auto;
+			  padding: 16px;
+			  margin-top: -22px;
+			  color: white;
+			  font-weight: bold;
+			  font-size: 18px;
+			  transition: 0.6s ease;
+			  border-radius: 50%;
+			  user-select: none;
+			
+			}
+			
+			/* Position the "next button" to the right */
+			.next {
+			  right:0;
+			  border-radius: 50%;
+			  transform: translateX(50px);
+			}
+			
+			/* Position the "next button" to the right */
+			.prev {
+			  left:0;
+			  border-radius: 50%;
+			  transform: translateX(-50px);
+			}
+			
+			/* On hover, add a grey background color */
+			.prev:hover, .next:hover {
+			  background-color:salmon;
+			  color: black;
+			}
+			
+			/* Fading animation */
+			.fade {
+			  -webkit-animation-name: fade;
+			  -webkit-animation-duration: 1.5s;
+			  animation-name: fade;
+			  animation-duration: 1.5s;
+			}
+			
+			@-webkit-keyframes fade {
+			  from {opacity: .4} 
+			  to {opacity: 1}
+			}
+			
+			@keyframes fade {
+			  from {opacity: .4} 
+			  to {opacity: 1}
+			}
+			
+			/* On smaller screens, decrease text size */
+			@media only screen and (max-width: 300px) {
+			  .prev, .next,.text {font-size: 11px}
+			}
+			
+			.custom-shape-divider-bottom-1640131651 {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				overflow: hidden;
+				line-height: 0;
+				transform: rotate(180deg);
+			}
+			
+			.custom-shape-divider-bottom-1640131651 svg {
+				position: relative;
+				display: block;
+				width: calc(100% + 1.3px);
+				height: 119px;
+			}
+			
+			.custom-shape-divider-bottom-1640131651 .shape-fill {
+				fill: #9e9e9e;
+			}
+			
+			.custom-shape-divider-top-1640132301 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				overflow: hidden;
+				line-height: 0;
+				transform: rotate(180deg);
+			}
+			
+			.custom-shape-divider-top-1640132301 svg {
+				position: relative;
+				display: block;
+				width: calc(100% + 1.3px);
+				height: 119px;
+			}
+			
+			.custom-shape-divider-top-1640132301 .shape-fill {
+				fill: #9e9e9e;
+			}
+
+			
+.button1 {
+  min-width: 300px;
+  min-height: 60px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #313133;
+  background: #4FD1C5;
+background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgba(79,209,197,.64);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  }
+
+.button1::before {
+content: '';
+  border-radius: 1000px;
+  min-width: calc(300px + 12px);
+  min-height: calc(60px + 12px);
+  border: 6px solid #00FFCB;
+  box-shadow: 0 0 60px rgba(0,255,203,.64);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all .3s ease-in-out 0s;
+}
+
+.button1:hover, .button:focus {
+  color: #313133;
+  transform: translateY(-6px);
+}
+
+.button1:hover::before, button:focus::before {
+  opacity: 1;
+}
+
+
+.button1:hover::after, button:focus::after {
+  animation: none;
+  display: none;
+}
+
+
+.slot {
+	width: 50%;
+    color: rgb(38, 50, 56);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(136, 126, 126, 0.04);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid rgba(0, 0, 0, 0.02);
+    margin-bottom: 50px;
+    text-align: center;
+	justify-items: center;
+	justify-self: center;
+    margin-bottom: 27px;
+    font-family: 'Ubuntu', sans-serif;
+}
+			
+    
+	</style>
 	
 	<body>
 	
-		<!-- Sidebar/menu -->
-	<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-		<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-		<div class="w3-container">
-		  <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
-		</div>
-		<div class="w3-bar-block">
+		<div id="topbar" class="header" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+			<h1 style="text-align: center; color: white; vertical-align: middle; font-family: 'Varela Round', sans-serif;">MiracleSheep's Server</h1></div>
+			<input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="w3_trigger()">
+			<label for="openSidebarMenu" class="sidebarIconToggle">
+			  <div class="spinner diagonal part-1"></div>
+			  <div class="spinner horizontal"></div>
+			  <div class="spinner diagonal part-2"></div>
+			</label>
+		  
+		  
+		  
+			<div id="sidebarMenu">
+			  <ul class="sidebarMenuInner">
+				<li>MiracleSheep Server <span style="color: rgba(255, 255, 255, 0.50);">By John Khalife</span></li>
+			  <li><a href="/" class="a1"><span>Home</span></a></li>
+			<li><a href="/about" class="a1"><span>About</span></a> </li>
+		  <li><a href="/login" class="a1"><span>Login</span></a></li>
+			  </ul>
+			</div>
 			
-		  <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-		  <a href="/about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
-		  <a href="/login" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Login</a>
+			
+			
+			<div id='center' class="center" style="transition: margin-left 0.5s ease-in-out;">
 
-	
-	
-		</div>
-	  </nav>
-	
-	  <!-- Top menu on small screens -->
-	<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-	  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-	  <span>MiracleSheep server</span>
-	</header>
-	
-	<!-- Overlay effect when opening sidebar on small screens -->
-	<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-	
-	<!-- !PAGE CONTENT! -->
-	<div class="w3-main" style="margin-left:340px;margin-right:40px">
+					<form action="auth" method="POST" target="_self" style="text-align: center; ">
+					<div class="w3-red" style="padding: 5%; width: 50%; height: 75%; margin:auto; margin-top: 100px; margin-bottom: 100px;">  
 
-<div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Login</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Enter your login information to gain access to the other features of this web page!</p>
-    <form action="auth" method="POST" target="_blank">
-      <div class="w3-section">
-        <label>Username</label>
-        <input class="w3-input w3-border" type="text" name="username" placeholder="Username" required
-      </div>
-      <div class="w3-section">
-        <label>Password</label>
-        <input class="w3-input w3-border" type="password" name="password" placeholder="Password" required>
-      </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
-    </form>  
-  </div>
+						<h1 class="w3-xxxlarge w3-text-white w3-center" style="text-align: center; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Login</h1>
+						<p style="color: white;"> <I>Enter your login information to gain access to the other features of this web page!</I></p>
+
+						<div class="w3-section">
+							<h5 style="text-align: center; justify-items: center; justify-self: center;">Username</h5>
+							<input style="background-color: white; text-align: center;" class="slot" type="text" name="username" placeholder="Username" required>
+						</div>
+						<div class="w3-section">
+							<h5 style="text-align: center; justify-items: center; justify-self: center;">Password</h5>
+							<input style="background-color: white; text-align: center;" class="slot" type="password" name="password" placeholder="Password" required>
+						</div>
+							<button type="submit" class="button1" style="margin-top: 100px">Sign in</button>
+					</div>
+
+				
+					</form>  
+				  </div>
+
+			</div>
+			  
 
   <script>
-	// Script to open and close sidebar
-	function w3_open() {
-	  document.getElementById("mySidebar").style.display = "block";
-	  document.getElementById("myOverlay").style.display = "block";
-	}
-	 
-	function w3_close() {
-	  document.getElementById("mySidebar").style.display = "none";
-	  document.getElementById("myOverlay").style.display = "none";
-	}
-	
-	// Modal Image Gallery
-	function onClick(element) {
-	  document.getElementById("img01").src = element.src;
-	  document.getElementById("modal01").style.display = "block";
-	  var captionText = document.getElementById("caption");
-	  captionText.innerHTML = element.alt;
-	}
-	</script>
+
+    var open = false;
+
+    function w3_trigger() {
+      console.log("called")
+      if (open == false) {
+      document.getElementById("center").style.marginLeft = "15%";
+      open = true;
+    } else {
+      document.getElementById("center").style.marginLeft = "0%";
+      open = false;
+    }
+    }
+    
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+     document.getElementById("modal01").style.marginTop = "80px";
+
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+
+    }
+
+    var slideIndex = [1,1,1];
+    var slideId = ["mySlides1", "mySlides2", "mySlides3"]
+    showSlides(1, 0);
+    showSlides(1, 1);
+    showSlides(1, 2);
+
+    function plusSlides(n, no) {
+      showSlides(slideIndex[no] += n, no);
+    }
+
+    function showSlides(n, no) {
+      var i;
+      var x = document.getElementsByClassName(slideId[no]);
+      if (n > x.length) {slideIndex[no] = 1}    
+      if (n < 1) {slideIndex[no] = x.length}
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+      }
+      x[slideIndex[no]-1].style.display = "block";  
+    }
+
+  
+
+    </script>
 
 </body>
 

@@ -6,141 +6,1234 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
     <style>
-    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-    body {font-size:16px;}
-    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-    .w3-half img:hover{opacity:1}
+
+
+      .mySlides1, .mySlides2 {display: none}  
+  
+      @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+      html, body {
+          overflow-x: hidden;
+          height: 100%;
+      }
+      body {
+          background: #fff;
+          padding: 0;
+          margin: 0;
+          font-family: 'Varela Round', sans-serif;
+      }
+  
+      img {
+          width:  100%;
+          height: 500px;
+          object-fit: scale-down;
+      }
+  
+      .header {
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+          max-width: 100%;
+          box-shadow: none;
+          background-color: #F44336;
+          position:fixed;
+          height: 80px!important;
+          overflow: hidden;
+          z-index: 10;
+      }
+  
+      #center {
+        transition: margin-left 0.5s;
+      }
+  
+      .main {
+          margin: 0 auto;
+          display: block;
+          height: 100%;
+          margin-top: 60px;
+          transition: 0.5s;
+      }
+      .mainInner{
+          display: table;
+          height: 100%;
+          width: 100%;
+          text-align: center;
+          transition: 0.5s;
+      }
+      .mainInner div{
+          display:table-cell;
+          vertical-align: middle;
+          font-size: 3em;
+          font-weight: bold;
+          letter-spacing: 1.25px;
+          transition: 0.5s;
+      }
+      #sidebarMenu {
+          height: 100%;
+          position: fixed;
+          left: 0;
+          width:15%;
+          margin-top: 80px;
+          transform: translateX(-100%);
+          transition: transform 0.5s ease-in-out;
+          background: #F44336;
+      }
+      .sidebarMenuInner{
+          margin:0;
+          padding:0;
+          border-top: 1px solid rgba(255, 255, 255, 0.10);
+      }
+      .sidebarMenuInner li{
+          list-style: none;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+          padding: 20px;
+          cursor: pointer;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      }
+      .sidebarMenuInner li span{
+          display: block;
+          font-size: 14px;
+      }
+      .sidebarMenuInner li a{
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+          cursor: pointer;
+          text-decoration: none;
+      }
+      input[type="checkbox"]:checked ~ #sidebarMenu {
+          transform: translateX(0); 
+      }
+  
+  
+      input[type=checkbox] {
+          transition: 0.5s;
+          box-sizing: border-box;
+          display: none;
+      }
+      .sidebarIconToggle {
+          transition: 0.5s;
+          box-sizing: border-box;
+          cursor: pointer;
+          position: absolute;
+          z-index: 99;
+          height: 100%;
+          width: 100%;
+          top: 22px;
+          left: 15px;
+          height: 22px;
+          width: 22px;
+      }
+      .spinner {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          background-color: #fff;
+      }
+      .horizontal {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: relative;
+          float: left;
+          margin-top: 3px;
+      }
+      .diagonal.part-1 {
+          position: relative;
+          transition: 0.5s;
+          box-sizing: border-box;
+          float: left;
+      }
+      .diagonal.part-2 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          position: relative;
+          float: left;
+          margin-top: 3px;
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
+          transition: 0.5s;
+          box-sizing: border-box;
+          opacity: 0;
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          transform: rotate(135deg);
+          margin-top: 8px;
+          
+      }
+      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
+          transition: 0.5s;
+          box-sizing: border-box;
+          transform: rotate(-135deg);
+          margin-top: -9px;
+          
+      }
+  
+      .a1{
+        display: block;
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+        font-family: sans-serif;
+        text-decoration: none;
+        color: #333;
+  
+        letter-spacing: 2px;
+        text-align: center;
+        position: relative;
+        transition: .35s;
+      }
+  
+      .a1 span{
+        position: relative;
+        z-index: 2;
+      }
+  
+      .a1:after{
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #20191b;
+        transition: .35s;
+      }
+  
+      .a1:hover{
+        color: #fff;
+      }
+  
+      .a1:hover:after{
+        width: 100%;
+      }
+  
+      /* Slideshow container */
+      .slideshow-container {
+        width: 50%;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        display:block;
+        text-align: center;
+        justify-self:center;
+      }
+  
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+  
+      .active, .dot:hover {
+        background-color: #717171;
+      }
+  
+      /* Next & previous buttons */
+      .prev, .next {
+        background-color: #F44336;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 50%;
+        user-select: none;
+  
+      }
+  
+      /* Position the "next button" to the right */
+      .next {
+        right:0;
+        border-radius: 50%;
+        transform: translateX(50px);
+      }
+  
+      /* Position the "next button" to the right */
+      .prev {
+        left:0;
+        border-radius: 50%;
+        transform: translateX(-50px);
+      }
+  
+      /* On hover, add a grey background color */
+      .prev:hover, .next:hover {
+        background-color:salmon;
+        color: black;
+      }
+  
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+  
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+  
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+  
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+      }
+
+
+/* Button */
+.btn {
+  background: white;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: visible;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn:hover {
+  box-shadow: 1px 1px 25px 10px rgba(27, 224, 60, 0.4);
+  transition: ease-in-out 0.3s;
+}
+
+/* In Progress Button */
+.btn-progress {
+  width: 500px;
+  color: transparent;
+}
+
+.btn-fill:after {
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+  color: transparent;
+  
+}
+
+/* Button Complete */
+.btn-complete {
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+  color: transparent;
+}
+
+.btn-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
+/* Animation */
+@keyframes fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Button */
+.btn2 {
+  background: white;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn2:hover {
+  box-shadow: 1px 1px 25px 10px rgba(27, 224, 60, 0.4);
+  transition: ease-in-out 0.3s;
+}
+
+/* In Progress Button */
+.btn2-progress {
+  width: 500px;
+  color: transparent;
+}
+
+.btn2-fill:after {
+  color: transparent;
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+}
+
+/* Button Complete */
+.btn2-complete {
+  color: transparent;
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn2-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
+.slider {
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  
+  
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height: 700px;
+  margin-right: 50px;
+  border-radius: 10px;
+  background: #eee;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+}
+.author-info {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+}
+.author-info a {
+  color: white;
+}
+img {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider > a {
+  display: inline-flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: white;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 0 0.5rem 0;
+  position: relative;
+}
+.slider > a:active {
+  top: 1px;
+}
+.slider > a:focus {
+  background: #000;
+}
+
+/* Don't need button navigation */
+@supports (scroll-snap-type) {
+  .slider > a {
+    display: none;
+  }
+}
+
+.custom-shape-divider-bottom-1640380837 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1640380837 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-bottom-1640380837 .shape-fill {
+    fill: #989898;
+}
+
+/* Button */
+.btn3 {
+  background: white;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn3:hover {
+  box-shadow: 1px 1px 25px 10px rgba(27, 224, 60, 0.4);
+  transition: ease-in-out 0.3s;
+}
+
+/* In Progress Button */
+.btn3-progress {
+  width: 500px;
+  color: transparent;
+}
+
+.btn3-fill:after {
+  color: transparent;
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+}
+
+/* Button Complete */
+.btn3-complete {
+  color: transparent;
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn3-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
+/* Button */
+.btn4 {
+  background: white;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn4:hover {
+  box-shadow: 1px 1px 25px 10px rgba(27, 224, 60, 0.4);
+  transition: ease-in-out 0.3s;
+}
+
+/* In Progress Button */
+.btn4-progress {
+  width: 500px;
+  color: transparent;
+}
+
+.btn4-fill:after {
+  color: transparent;
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+}
+
+/* Button Complete */
+.btn4-complete {
+  color: transparent;
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn4-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
+/* Button */
+.btn5 {
+  background: white;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn5:hover {
+  box-shadow: 1px 1px 25px 10px rgba(27, 224, 60, 0.4);
+  transition: ease-in-out 0.3s;
+}
+
+/* In Progress Button */
+.btn5-progress {
+  width: 500px;
+  color: transparent;
+}
+
+.btn5-fill:after {
+  color: transparent;
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+}
+
+/* Button Complete */
+.btn5-complete {
+  color: transparent;
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn5-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
+/* Button */
+.btn6 {
+  background: white;
+  width: 200px;
+  height: 100px;
+  position: relative;
+  padding: 15px;
+  color: #1ECD97;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 500ms cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  border-radius: 4px;
+  font-weight: 600;
+  overflow: hidden;
+  border: 2px solid #1ECD97;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.btn6:hover {
+  box-shadow: 1px 1px 25px 10px rgba(27, 224, 60, 0.4);
+  transition: ease-in-out 0.3s;
+}
+
+/* In Progress Button */
+.btn6-progress {
+  width: 500px;
+  color: transparent;
+}
+
+.btn6-fill:after {
+  color: transparent;
+  content: '';
+  background: #1ECD97;
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0;
+  display: block;
+  animation: fill 3.2s linear forwards;
+}
+
+/* Button Complete */
+.btn6-complete {
+  color: transparent;
+  padding: 10px;
+  width: 50px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.btn6-complete:after {
+  font-family: FontAwesome;
+  content: "\f00c";
+  color: #fff;
+  height: 100%;
+  padding-left: 3px;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1ECD97;
+}
+
     </style>
 
 <body>
 
-  <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-    <div class="w3-container">
-      <h3 class="w3-padding-64"><b>MiracleSheep's<br>Server</b></h3>
+  <div id="topbar" class="header" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <h1 style="text-align: center; color: white; vertical-align: middle; font-family: 'Varela Round', sans-serif;">MiracleSheep's Server</h1></div>
+    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" onclick="w3_trigger()">
+    <label for="openSidebarMenu" class="sidebarIconToggle">
+      <div class="spinner diagonal part-1"></div>
+      <div class="spinner horizontal"></div>
+      <div class="spinner diagonal part-2"></div>
+    </label>
+  
+  
+  
+    <div id="sidebarMenu">
+      <ul class="sidebarMenuInner">
+        <li>MiracleSheep Server <span style="color: rgba(255, 255, 255, 0.50);">By John Khalife</span></li>
+      <li><a href="/" class="a1"><span>Home</span></a></li>
+    <li><a href="/about" class="a1"><span>About</span></a> </li>
+    <li><a href="/history" class="a1"><span>History</span></a></li>
+    <li><a href="/vote" class="a1"><span>Vote</span></a></li>
+    <li><a href="/modpacks" class="a1"><span>Modpacks</span></a></li>
+    <li><a href="/plugins" class="a1"><span>Plugins</span></a></li>
+    <li><a href="/mods" class="a1"><span>Mods</span></a></li>
+    <li><a href="/other" class="a1"><span>Other Creations</span></a></li>
+      </ul>
     </div>
-    <div class="w3-bar-block">
-      <a href="/homeauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-      <a href="/aboutauth" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">About</a> 
-      <a href="/history" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">History</a> 
-      <a href="/vote" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Vote</a> 
-      <a href="/modpacks" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Modpacks</a> 
-      <a href="/plugins" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Plugins</a> 
-      <a href="/mods" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Mods</a> 
-      <a href="/other" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Other creations</a> 
+
+    <div id='center' class="center" style="transition: margin-left 0.5s ease-in-out; margin-top: 100px;">
+      
+      <section style="position: relative;">
+      
+      <div>
+        <h1 class="w3-xxxlarge w3-text-red w3-center"><b>Modpacks</b></h1>
+        <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+    
+        <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="margin-bottom: 200px;">Occasionally we like to play modded SMPs on the server. We have many different ideas for modpacks. This page is meant for easy access to the modpacks we use on the server, so anyone who wants to join or try them out can just download them from here.
+        Some of the modpacks were unbalanced or boring, so we didin't include them, and others have been lost to time.</h5>
+    
+      </div>
+    </section>
+
+<section style="position: relative;">
+  <div class="custom-shape-divider-bottom-1640380837">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+    </svg>
+</div>
+</section>
+
+    <section style="position: relative; background-color: #989898; padding-bottom: 50px;">
+    <div class="slider" style="background-color: #989898;">
+  
+      <a href="#slide-1">1</a>
+      <a href="#slide-2">2</a>
+      <a href="#slide-3">3</a>
+      <a href="#slide-4">4</a>
+      <a href="#slide-5">5</a>
+      <a href="#slide-6">6</a>
+
+      
+    
+      <div class="slides" style="width: 50%; border-radius: 12px; margin-left: auto; margin-right: auto; text-align: center; background-color: white;">
+        
+        <div id="slide-1" style="background-color: white;">
+          <div>
+    
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>1.15.2 First Vanilla Modpack</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto; padding-bottom: 0%;" class="w3-round w3-center">
+        
+           <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="padding-top: 50 px;">This modpack was used when everyone was finished the first vanilla server, and it mainly focused on endgame mods. It is not very well balanced and has no main objective. This modpack was lost to time for a while, but was recently found once more thanks to Crazyfr0g_. It is the reason for the corruption of the first world.
+              Here is the download:</h5>
+        
+
+              <a href="https://www.dropbox.com/s/fwjd928o0j0bvlq/1st%20server%20modpack.zip?dl=1" target="_blank" style="display: block; margin-left: auto; margin-right: auto;" class="btn5 w3-center"><i class="fa fa-download"></i> Download</a>
+            
+          </div>
+        </div>
+        <div id="slide-2" style="background-color: white;">
+          <div>
+    
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>1.12.2 First Modded SMP</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto; padding-bottom: 0%;" class="w3-round w3-center">
+        
+           <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="padding-top: 50 px;"> This was the least popular modpack. It consisted of a random mishmash of mods focused around technology (however there are some magic mods) that look cool with no real objective. The problem with this modpack was that everyone later lost purpose in doing anything.
+              Here is the download:</h5>
+        
+
+              <a href="https://www.dropbox.com/sh/8awzrwb84fx8go4/AACIh9Y-Tdm97e4zf17rWOOCa?dl=1" target="_blank" style="display: block; margin-left: auto; margin-right: auto;" class="btn4 w3-center"><i class="fa fa-download"></i> Download</a>
+            
+          </div>
+        </div>
+        <div id="slide-3" style="background-color: white;">
+          <div>
+    
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>1.12.2 Race to the Moon Modpack</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto; padding-bottom: 0%;" class="w3-round w3-center">
+        
+           <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="padding-top: 50 px;">This modpack was very fun, although later on it gets a bit grindy. It was inspired from the modpack used in the youtube series known as Race to the Moon, which MiracleSheep liked to watch as a child.
+            Here's a link to the first episode: <a href="https://www.youtube.com/watch?v=3dXOVze5hRk">Minecraft - Race To The Moon - Lets Do This! [1].</a>
+            Basically, you split into teams, and the first one to the moon wins. This modpack has all of the mods used in the series and a few more.
+              Here is the download:</h5>
+        
+
+              <a href="https://www.dropbox.com/sh/8awzrwb84fx8go4/AACIh9Y-Tdm97e4zf17rWOOCa?dl=1" target="_blank" style="display: block; margin-left: auto; margin-right: auto;" class="btn w3-center"><i class="fa fa-download"></i> Download</a>
+            
+          </div>
+        </div>
+        <div id="slide-4" style="background-color: white;">
+          <div>
+    
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>1.12.2 Ice Age Modpack</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+        
+            <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content">This was a challenge modpack. It was inspired from a video by AsianHalfSquat, suggested by Xtreem_Piggy17. Here's a link to the video this modpack was taken from: <a href="https://www.youtube.com/watch?v=3zdnNJdlUBU">How To Turn Minecraft Into An Ice Age Survival Game.</a>
+            This version of the modpack has some of the mods in the video removed, since specific mobs were crashing the server. 
+            Basically, it is an ice age challenge, meant for hardcore. the main mod is the tough as nails mod, and a mod that makes it constantly winter.
+            It was in hardcore, but it was very difficult, so we gave everyone three lives.
+            Here is the download:</h5>
+        
+
+            <a href="https://www.dropbox.com/sh/yvpquzr2q7as5ur/AAB2NXs-yQWdru9eq82e1-jSa?dl=1" target="_blank" style="display: block; margin-left: auto; margin-right: auto;" class="btn2 w3-center"><i class="fa fa-download"></i> Download</a>
+            
+          </div>
+        </div>
+        <div id="slide-5" style="background-color: white;">
+          <div>
+    
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>1.12.2 Magic Modpack</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto;" class="w3-round w3-center">
+        
+            <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content">This modpack was a meant for an SMP. It is full of magic mods.
+              It is very hard to start out, but becomes much easier as time goes on. It is a very balanced modpack.
+              There are a few optional grindy mods, but the main attractions are the dimension mods, including the Aether, Twighlight forest, Midnight dimension, and Betweenlands.
+              There is also the Ice and Fire mod, which adds dragons and other amazing creatures to the game, which makes starting out difficult.
+              Here is the download:</h5>
+        
+              <a href="https://www.dropbox.com/sh/wrqh71vxmqbop52/AABv1GeH-MABE3i5UoLVvBQYa?dl=1" target="_blank" style="display: block; margin-left: auto; margin-right: auto;" class="btn3 w3-center"><i class="fa fa-download"></i> Download</a>
+  
+          </div>
+        </div>
+        <div id="slide-6" style="background-color: white;">
+          <div>
+    
+            <h1 class="w3-xxxlarge w3-text-red w3-center"><b>1.12.2 Avatar Modpack</b></h1>
+            <hr style="width:50px;border:5px solid red; text-align: center; justify-content: center; margin-left: auto; margin-right: auto; padding-bottom: 0%;" class="w3-round w3-center">
+        
+           <h5 class="w3-center w3-padding-32 w3-row-padding w3-padding-64 w3-content" style="padding-top: 50 px;"> This is a modified version of a modpack from curseforge. It is themed around the show Avatar, with lots of magic mods and includes mods to help with kingdom building like npc automation. It is highly balanced and has a focused goal, which is to master your respective bending and build a kingdom. It is recommended that each player starts their own kingdom and go to war with eachother. A good late game mix up would be to allow everyone to choose a second element. 
+              Here is the download:</h5>
+        
+
+              <a href="https://www.dropbox.com/sh/8awzrwb84fx8go4/AACIh9Y-Tdm97e4zf17rWOOCa?dl=1" target="_blank" style="display: block; margin-left: auto; margin-right: auto;" class="btn5 w3-center"><i class="fa fa-download"></i> Download</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+  </div>
+    
+    
+  <!-- <section style="position: relative; background-color: #9E9E9E;">
+
+
+  </section>
+  <section style="position: relative; background-color: #9E9E9E;">
+
+    </section>
+
+    
+  <section style="position: relative;">
+
+    </section>
+
+  <section style="position: relative; background-color: #9E9E9E;">
+
+    </section> -->
+
 
 
     </div>
-  </nav>
-
-  <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>MiracleSheep server</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:40px" id="showcase">
-    <div>
-    <h1 class="w3-jumbo"><b>Modpacks</b></h1>
-    </div>
-  </div>
-  <img src="/images/sheep.png" style="float: right; margin: 40px;">
-  <div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Why modpacks are here</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>Occasionaly we like to play modded SMPs on the server. We have many different ideas for modpacks. This page is meant for easy access to the modpacks we use on the server, so anyone who wants to join or try them out can just download them from here.
-    Some of the modpacks were unbalanced or boring, so we didin't include them.</p>
-
-  </div>
-
-
-
-
-  <div>
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>1.12.2 Race to the Moon Modpack</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>This modpack was very fun, although later on it gets a bit grindy. It was inspired from the modpack used in the youtube series known as Race to the Moon, which MiracleSheep liked to watch as a child.</p>
-    Here's a link to the first episode: <a href="https://www.youtube.com/watch?v=3dXOVze5hRk">Minecraft - Race To The Moon - Lets Do This! [1].</a></p>
-    Basically, you split into teams, and the first one to the moon wins. This modpack has all of the mods used in the series and a few more.
-      Here is the download:</p>
-
-    <form action="https://www.dropbox.com/sh/8awzrwb84fx8go4/AACIh9Y-Tdm97e4zf17rWOOCa?dl=1" method="GET">
-        <input type="submit" name="Race-to-The-Moon" value="Race-to-The-Moon" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" style="width: 20%;">
-      </form>
     
-  </div>
-
-
-  <div>
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>1.12.2 Ice Age Modpack</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>This was a challenge modpack. It was inspired from a video by AsianHalfSquat, suggested by Xtreem_Piggy17. Here's a link to the video this modpack was taken from: <a href="https://www.youtube.com/watch?v=3zdnNJdlUBU">How To Turn Minecraft Into An Ice Age Survival Game.</a></p> 
-    This version of the modpack has some of the mods in the video removed, since specific mobs were crashing the server. 
-    Basically, it is an ice age challenge, meant for hardcore. the main mod is the tough as nails mod, and a mod that makes it constantly winter.</p>
-    It was in hardcore, but it was very difficult, so we gave everyone three lives.
-    Here is the download:</p>
-
-    <form action="https://www.dropbox.com/sh/yvpquzr2q7as5ur/AAB2NXs-yQWdru9eq82e1-jSa?dl=1" method="GET">
-        <input type="submit" name="Ice-Age" value="Ice-Age" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" style="width: 20%;">
-      </form>
-    
-  </div>
-
-
-  <div>
-
-    <h1 class="w3-xxxlarge w3-text-red"><b>1.12.2 Magic Modpack</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-
-    <p>This modpack was a meant for an SMP. It is full of magic mods.
-      It is very hard to start out, but becomes much easier as time goes on. It is a very balanced modpack.</p>
-      There are a few optional grindy mods, but the main attractions are the dimension mods, including the Aether, Twighlight forest, Midnight dimension, and Betweenlands.</p>
-      There is also the Ice and Fire mod, which adds dragons and other amazing creatures to the game, which makes starting out difficult.</p>
-      Here is the download:</p>
-
-    <form action="https://www.dropbox.com/sh/wrqh71vxmqbop52/AABv1GeH-MABE3i5UoLVvBQYa?dl=1" method="GET">
-        <input type="submit" name="Magic-Modpack" value="Magic-Modpack" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" style="width: 20%;">
-      </form>
-    
-  </div>
 
 
 
 
 
-  <script>
-    // Script to open and close sidebar
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
-      document.getElementById("myOverlay").style.display = "block";
-    }
-     
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
-      document.getElementById("myOverlay").style.display = "none";
-    }
-    
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
-    }
-    </script>
+    <script>
+
+      var open = false;
+  
+      function w3_trigger() {
+        console.log("called")
+        if (open == false) {
+        document.getElementById("center").style.marginLeft = "15%";
+        open = true;
+      } else {
+        document.getElementById("center").style.marginLeft = "0%";
+        open = false;
+      }
+      }
+      
+      $(function() {
+        var btn = $(".btn");
+        
+        btn.on("click", function() {
+          $(this).addClass('btn-progress');
+          setTimeout(function() {
+            btn.addClass('btn-fill')
+          }, 500);
+          
+          setTimeout(function() {
+            btn.removeClass('btn-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn-progress')
+          }, 6000);
+          
+        });
+      })
+
+      $(function() {
+        var btn = $(".btn2");
+        
+        btn.on("click", function() {
+
+          
+          $(this).addClass('btn2-progress');
+          setTimeout(function() {
+            btn.addClass('btn2-fill')
+          }, 500);
+
+          
+          setTimeout(function() {
+            btn.removeClass('btn2-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn2-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn2-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn2-progress')
+          }, 6000);
+
+          
+        
+        });
+      })
+
+      $(function() {
+        var btn = $(".btn3");
+        
+        btn.on("click", function() {
+          
+          $(this).addClass('btn3-progress');
+          setTimeout(function() {
+            btn.addClass('btn3-fill')
+          }, 500);
+
+          
+          setTimeout(function() {
+            btn.removeClass('btn3-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn3-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn3-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn3-progress')
+          }, 6000);
+        
+        });
+      })
+
+
+      $(function() {
+        var btn = $(".btn4");
+        
+        btn.on("click", function() {
+          
+          $(this).addClass('btn4-progress');
+          setTimeout(function() {
+            btn.addClass('btn4-fill')
+          }, 500);
+
+          
+          setTimeout(function() {
+            btn.removeClass('btn4-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn4-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn4-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn4-progress')
+          }, 6000);
+        
+        });
+      })
+
+      $(function() {
+        var btn = $(".btn5");
+        
+        btn.on("click", function() {
+          
+          $(this).addClass('btn5-progress');
+          setTimeout(function() {
+            btn.addClass('btn5-fill')
+          }, 500);
+
+          
+          setTimeout(function() {
+            btn.removeClass('btn5-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn5-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn5-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn5-progress')
+          }, 6000);
+        
+        });
+      })
+  
+      $(function() {
+        var btn = $(".btn6");
+        
+        btn.on("click", function() {
+          
+          $(this).addClass('btn6-progress');
+          setTimeout(function() {
+            btn.addClass('btn6-fill')
+          }, 500);
+
+          
+          setTimeout(function() {
+            btn.removeClass('btn6-fill')
+          }, 4100);
+          
+          setTimeout(function() {
+            btn.addClass('btn6-complete')
+          }, 4100);
+
+          setTimeout(function() {
+            btn.removeClass('btn6-complete')
+          }, 6000);
+
+          setTimeout(function() {
+            btn.removeClass('btn6-progress')
+          }, 6000);
+        
+        });
+      })
+      </script>
 
 
 </body>
